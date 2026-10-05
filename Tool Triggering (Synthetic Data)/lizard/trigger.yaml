@@ -3,17 +3,17 @@ label: "Lizard"
 language: typescript
 node_version: "20"
 typescript_version: "5.9.3"
-branch: "TS-112"
-scenario: "2 - Microservices"
-architecture: "Microservices"
-module: "workspace"
+branch: "TS-111"
+scenario: "1 - Monolithic"
+architecture: "Monolith"
+module: "flat"
 package_manager: "bun"
 bundler: "vite"
-project: packages/domain/package.json
+project: package.json
 tests: tests/
 tools_project: tools/
 pinned-version: null  # not an npm package -- see the runner
 config: null
-target_files: [packages/domain/src]
-command: "lizard -l typescript packages/domain/src --csv"
+target_files: [src]
+command: "lizard -l typescript src --csv"
 produces: "reports/lizard.csv -- CCN and token counts. See the caveat in the README"

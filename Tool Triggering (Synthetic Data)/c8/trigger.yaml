@@ -3,17 +3,17 @@ label: "c8 (V8 coverage, primary)"
 language: typescript
 node_version: "20"
 typescript_version: "5.9.3"
-branch: "TS-112"
-scenario: "2 - Microservices"
-architecture: "Microservices"
-module: "workspace"
+branch: "TS-111"
+scenario: "1 - Monolithic"
+architecture: "Monolith"
+module: "flat"
 package_manager: "bun"
 bundler: "vite"
-project: packages/domain/package.json
+project: package.json
 tests: tests/
 tools_project: tools/
 pinned-version: "8.0.1"
 config: "tools/c8/.c8rc.json"
-target_files: [packages/domain/src, tests]
+target_files: [src, tests]
 command: "node_modules/.bin/c8 --config tools/c8/.c8rc.json node_modules/.bin/mocha --config tools/mocha/.mocharc.cjs"
 produces: "coverage/coverage-summary.json -- MUST be non-zero (gate G2)"
