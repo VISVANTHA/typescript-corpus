@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# dependency-cruiser runner -- branch TS-192 (Node 24, bun, Microservices).
+# dependency-cruiser runner -- branch TS-191 (Node 24, bun, Monolith).
 set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$REPO_ROOT"
@@ -21,9 +21,9 @@ echo "[depcruise] version:"; node_modules/.bin/depcruise --version
 # exit code 0. A glob is required. `options.extensions` is not a valid v11
 # option and makes the whole config fail schema validation.
 node_modules/.bin/depcruise --config tools/dependency-cruiser/.dependency-cruiser.cjs \
-  --output-type json 'packages/domain/src/**/*.ts' > reports/depcruise.json || true
+  --output-type json 'src/**/*.ts' > reports/depcruise.json || true
 node_modules/.bin/depcruise --config tools/dependency-cruiser/.dependency-cruiser.cjs \
-  --output-type err 'packages/domain/src/**/*.ts' || true
+  --output-type err 'src/**/*.ts' || true
 node -e "
   const r = require('./reports/depcruise.json');
   const s = r.summary || {};
