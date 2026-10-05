@@ -26,7 +26,7 @@ import { resolve } from "path";
  */
 export default defineConfig({
   build: {
-    ssr: resolve(__dirname, "src/index.ts"),
+    ssr: resolve(__dirname, "packages/domain/src/index.ts"),
     outDir: "build",
     target: "node22",
     minify: false,

@@ -3,13 +3,13 @@ label: "mocha"
 language: typescript
 node_version: "22"
 typescript_version: "5.9.3"
-branch: "TS-159"
-scenario: "1 - Monolithic"
-architecture: "Monolith"
-module: "flat"
-package_manager: "bun"
+branch: "TS-154"
+scenario: "2 - Microservices"
+architecture: "Microservices"
+module: "workspace"
+package_manager: "npm"
 bundler: "vite"
-project: package.json
+project: packages/domain/package.json
 tests: tests/
 tools_project: tools/
 pinned-version: "10.8.2"

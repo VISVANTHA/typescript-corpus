@@ -3,17 +3,17 @@ label: "eslint-plugin-sonarjs"
 language: typescript
 node_version: "22"
 typescript_version: "5.9.3"
-branch: "TS-159"
-scenario: "1 - Monolithic"
-architecture: "Monolith"
-module: "flat"
-package_manager: "bun"
+branch: "TS-154"
+scenario: "2 - Microservices"
+architecture: "Microservices"
+module: "workspace"
+package_manager: "npm"
 bundler: "vite"
-project: package.json
+project: packages/domain/package.json
 tests: tests/
 tools_project: tools/
 pinned-version: "0.15.0"
 config: "eslint.config.mjs"
-target_files: [src/analysis/complexity-sample.ts]
-command: "node_modules/.bin/eslint src/analysis/complexity-sample.ts --no-inline-config --rulesdir-note sonarjs"
+target_files: [packages/domain/src/analysis/complexity-sample.ts]
+command: "node_modules/.bin/eslint packages/domain/src/analysis/complexity-sample.ts --no-inline-config --rulesdir-note sonarjs"
 expects_findings: true

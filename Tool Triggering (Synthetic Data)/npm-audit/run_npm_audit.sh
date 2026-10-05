@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# npm audit / npm ls runner -- branch TS-159 (Node 22, bun, Monolith).
+# npm audit / npm ls runner -- branch TS-154 (Node 22, npm, Microservices).
 set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$REPO_ROOT"
@@ -23,13 +23,13 @@ pkgver() {
 # It resolves npm packages exactly like the others; the project still RUNS on
 # Node 12. bun does not enforce engines.node at install time.
 echo "[audit] proving the committed lockfile installs frozen"
-bun install --frozen-lockfile
+npm ci
 echo
 echo "[audit] dependency tree:"
-bun pm ls || true
+npm ls --all --depth=1 || true
 echo
 echo "[audit] vulnerabilities against the committed graph:"
-bun audit --json || true > reports/audit.json 2>/dev/null || true
+npm audit --json > reports/audit.json 2>/dev/null || true
 node -e "
   let a; try { a = require('./reports/audit.json'); } catch (e) { console.log('[audit] no JSON report'); process.exit(0); }
   const m = (a.metadata && a.metadata.vulnerabilities) || {};

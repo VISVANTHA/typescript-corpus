@@ -1,6 +1,6 @@
 import { expect } from "chai";
-import { OrderService } from "../src/services/order-service";
-import { OrderValidationError, type OrderRecord } from "../src/models/order-record";
+import { OrderService } from "../packages/domain/src/services/order-service";
+import { OrderValidationError, type OrderRecord } from "../packages/domain/src/models/order-record";
 
 function order(overrides: Partial<OrderRecord> = {}): OrderRecord {
   return {
