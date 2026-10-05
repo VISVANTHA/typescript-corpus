@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# biome runner -- branch TS-129 (Node 21, npm, Monolith).
+# biome runner -- branch TS-134 (Node 21, pnpm, Microservices).
 set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$REPO_ROOT"
@@ -24,10 +24,10 @@ pkgver() {
 echo "[biome] version:"; node_modules/.bin/biome --version
 echo
 echo "[biome] 1/2 real source -- expect clean"
-node_modules/.bin/biome check src/models src/services || true
+node_modules/.bin/biome check packages/domain/src/models packages/domain/src/services || true
 echo
 echo "[biome] 2/2 planted fixtures -- expect findings"
-node_modules/.bin/biome check src/analysis --reporter=json > reports/biome.json 2>/dev/null || true
+node_modules/.bin/biome check packages/domain/src/analysis --reporter=json > reports/biome.json 2>/dev/null || true
 node -e "
   let r; try { r = require('./reports/biome.json'); } catch (e) { console.log('[biome] no JSON report'); process.exit(0); }
   const byRule = {};
