@@ -1,15 +1,15 @@
-# CI for branch TS-195.
+# CI for branch TS-216.
 #
 # The point of this file: it INVOKES EVERY WIRED TOOL and uploads what they
 # produce. FlintAtlas and WillowBrook ran only `npm install` and `npm test`, so
 # not one of their declared tools was ever executed in CI. Gate G6.
-name: TS-195
+name: TS-216
 
 on:
   push:
-    branches: ["TS-195"]
+    branches: ["TS-216"]
   pull_request:
-    branches: ["TS-195"]
+    branches: ["TS-216"]
   workflow_dispatch:
 
 jobs:
@@ -25,10 +25,10 @@ jobs:
           node-version: "26.8.1"
 
       - name: Package manager
-        run: corepack enable && corepack prepare yarn@3.8.7 --activate
+        run: # bun is a standalone binary, not an npm package -- see tools/npm-audit/run_npm_audit.sh
 
       - name: Install (frozen -- gate G4)
-        run: yarn install --immutable
+        run: bun install --frozen-lockfile
 
       - name: Verify every tool is wired
         run: node_modules/.bin/ts-node tools/tool_integration.ts --verify
@@ -40,7 +40,7 @@ jobs:
         run: bash tools/typescript/run_tsc.sh
 
       - name: Bundle and run the bundle
-        run: bash tools/esbuild/run_esbuild.sh
+        run: bash tools/rollup/run_rollup.sh
 
       - name: Tests
         run: bash tools/mocha/run_mocha.sh
@@ -122,7 +122,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: tool-reports-TS-195
+          name: tool-reports-TS-216
           path: |
             reports/
             coverage/
