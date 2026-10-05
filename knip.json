@@ -1,7 +1,7 @@
 {
   "$schema": "https://unpkg.com/knip@5/schema.json",
-  "entry": ["packages/domain/src/index.ts", "tests/**/*.spec.ts"],
-  "project": ["packages/domain/src/**/*.ts"],
+  "entry": ["src/index.ts", "tests/**/*.spec.ts"],
+  "project": ["src/**/*.ts"],
   "ignore": ["tools/**", "dist/**", "build/**"],
   "ignoreBinaries": ["biome", "depcruise", "grype", "lizard"],
   "ignoreExportsUsedInFile": true,
