@@ -3,17 +3,17 @@ label: "ts-prune"
 language: typescript
 node_version: "22"
 typescript_version: "5.9.3"
-branch: "TS-145"
-scenario: "1 - Monolithic"
-architecture: "Monolith"
-module: "flat"
-package_manager: "npm"
+branch: "TS-150"
+scenario: "2 - Microservices"
+architecture: "Microservices"
+module: "workspace"
+package_manager: "pnpm"
 bundler: "esbuild"
-project: package.json
+project: packages/domain/package.json
 tests: tests/
 tools_project: tools/
 pinned-version: "0.10.3"
 config: "tsconfig.json"
-target_files: [src/analysis/dead-code.ts]
+target_files: [packages/domain/src/analysis/dead-code.ts]
 command: "node_modules/.bin/ts-prune -p tsconfig.json"
 expects_findings: true
