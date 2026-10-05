@@ -3,7 +3,7 @@
   "packageManager": "yarn",
   "testRunner": "mocha",
   "mochaOptions": { "config": "tools/mocha/.mocharc.cjs" },
-  "mutate": ["packages/domain/src/services/**/*.ts", "packages/domain/src/models/**/*.ts", "!packages/domain/src/analysis/**"],
+  "mutate": ["src/services/**/*.ts", "src/models/**/*.ts", "!src/analysis/**"],
   "checkers": [],
   "reporters": ["progress", "clear-text", "json"],
   "jsonReporter": { "fileName": "reports/mutation/mutation.json" },
