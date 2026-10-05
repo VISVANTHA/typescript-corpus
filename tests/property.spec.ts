@@ -1,8 +1,8 @@
 import { expect } from "chai";
 import fc from "fast-check";
-import { OrderService } from "../packages/domain/src/services/order-service";
-import { effectiveRate } from "../packages/domain/src/services/pricing-rules";
-import type { OrderRecord, Tier } from "../packages/domain/src/models/order-record";
+import { OrderService } from "../src/services/order-service";
+import { effectiveRate } from "../src/services/pricing-rules";
+import type { OrderRecord, Tier } from "../src/models/order-record";
 
 const TIERS: Tier[] = ["gold", "silver", "bronze", "standard"];
 
