@@ -3,17 +3,17 @@ label: "vitest + @vitest/coverage-v8"
 language: typescript
 node_version: "20"
 typescript_version: "5.9.3"
-branch: "TS-102"
-scenario: "2 - Microservices"
-architecture: "Microservices"
-module: "workspace"
+branch: "TS-101"
+scenario: "1 - Monolithic"
+architecture: "Monolith"
+module: "flat"
 package_manager: "pnpm"
 bundler: "esbuild"
-project: packages/domain/package.json
+project: package.json
 tests: tests/
 tools_project: tools/
 pinned-version: "0.34.6"
 config: "vitest.config.ts"
-target_files: [tests, packages/domain/src]
+target_files: [tests, src]
 command: "node_modules/.bin/vitest run --config vitest.config.ts --coverage"
 produces: "coverage-vitest/coverage-summary.json -- a THIRD independent coverage number, alongside c8 and nyc"
