@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# ts-prune runner -- branch TS-097 (Node 20, npm, Monolith).
+# ts-prune runner -- branch TS-102 (Node 20, pnpm, Microservices).
 set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$REPO_ROOT"
