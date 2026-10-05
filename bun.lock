@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "typescript-n26-ts-216",
+      "name": "typescript-n26-ts-215",
       "dependencies": {
         "@opentelemetry/api": "1.9.1",
         "@opentelemetry/sdk-node": "0.221.0",
@@ -56,38 +56,6 @@
         "typescript": "5.9.3",
         "typescript-eslint": "8.68.0",
         "vitest": "4.1.11",
-      },
-    },
-    "packages/contracts": {
-      "name": "@orderkit/contracts",
-      "version": "1.0.0",
-    },
-    "packages/domain": {
-      "name": "@orderkit/domain",
-      "version": "1.0.0",
-    },
-    "services/gateway-service": {
-      "name": "@orderkit/gateway-service",
-      "version": "1.0.0",
-      "dependencies": {
-        "@orderkit/contracts": "workspace:*",
-        "@orderkit/domain": "workspace:*",
-      },
-    },
-    "services/order-service": {
-      "name": "@orderkit/order-service",
-      "version": "1.0.0",
-      "dependencies": {
-        "@orderkit/contracts": "workspace:*",
-        "@orderkit/domain": "workspace:*",
-      },
-    },
-    "services/pricing-service": {
-      "name": "@orderkit/pricing-service",
-      "version": "1.0.0",
-      "dependencies": {
-        "@orderkit/contracts": "workspace:*",
-        "@orderkit/domain": "workspace:*",
       },
     },
   },
@@ -413,16 +381,6 @@
     "@opentelemetry/sdk-trace-node": ["@opentelemetry/sdk-trace-node@2.10.0", "", { "dependencies": { "@opentelemetry/context-async-hooks": "2.10.0", "@opentelemetry/core": "2.10.0", "@opentelemetry/sdk-trace-base": "2.10.0" }, "peerDependencies": { "@opentelemetry/api": ">=1.0.0 <1.10.0" } }, "sha512-GZK/G6oZyBLGlH1pUgeDch7D91KoHd2uotUGIkWCPi9GI5T9X0p4L7nNAMDR1BQjkRYoDqo+ddfVx9t5Uhys+Q=="],
 
     "@opentelemetry/semantic-conventions": ["@opentelemetry/semantic-conventions@1.43.0", "", {}, "sha512-eSYWTm620tTk45EKSedaUL8MFYI8hW164hIXsgIHyxu3VobUB3fFCu5t0hQby6OoWRPsG1KkKUG2M5UadiLiVg=="],
-
-    "@orderkit/contracts": ["@orderkit/contracts@workspace:packages/contracts"],
-
-    "@orderkit/domain": ["@orderkit/domain@workspace:packages/domain"],
-
-    "@orderkit/gateway-service": ["@orderkit/gateway-service@workspace:services/gateway-service"],
-
-    "@orderkit/order-service": ["@orderkit/order-service@workspace:services/order-service"],
-
-    "@orderkit/pricing-service": ["@orderkit/pricing-service@workspace:services/pricing-service"],
 
     "@oxc-parser/binding-android-arm-eabi": ["@oxc-parser/binding-android-arm-eabi@0.143.0", "", { "os": "android", "cpu": "arm" }, "sha512-n9uozULWflPqBtdmI8lAabLqGKNgLVNN0ZH8HfgCwpKGNtzRzauB76jTiW/3YLkcA7N1zskpi9GdVnZuu1SAvg=="],
 
@@ -1973,6 +1931,8 @@
     "madge/chalk": ["chalk@4.1.2", "", { "dependencies": { "ansi-styles": "^4.1.0", "supports-color": "^7.1.0" } }, "sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA=="],
 
     "madge/commander": ["commander@7.2.0", "", {}, "sha512-QrWXB+ZQSVPmIWIhtEO9H+gwHaMGYiF5ChvoJ+K9ZGHG/sVsa6yiesAD1GC/x46sET00Xlwo1u49RVVVzvcSkw=="],
+
+    "magicast/@babel/parser": ["@babel/parser@7.29.8", "", { "dependencies": { "@babel/types": "^7.29.8" }, "bin": "./bin/babel-parser.js" }, "sha512-E8lTAYNB1KW+FH+VGJuZM1ioAx2E6oVlvQFRrf5P8ZZmsiJXYAD9vTFV7yyEURNzgh1dFqMZuO6tUwcARbqFCA=="],
 
     "make-dir/semver": ["semver@6.3.1", "", { "bin": { "semver": "bin/semver.js" } }, "sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA=="],
 
