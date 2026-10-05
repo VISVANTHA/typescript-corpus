@@ -258,37 +258,6 @@ importers:
         specifier: 2.1.9
         version: 2.1.9(@types/node@20.19.9)(supports-color@8.1.1)
 
-  packages/contracts: {}
-
-  packages/domain: {}
-
-  services/gateway-service:
-    dependencies:
-      '@orderkit/contracts':
-        specifier: workspace:*
-        version: link:../../packages/contracts
-      '@orderkit/domain':
-        specifier: workspace:*
-        version: link:../../packages/domain
-
-  services/order-service:
-    dependencies:
-      '@orderkit/contracts':
-        specifier: workspace:*
-        version: link:../../packages/contracts
-      '@orderkit/domain':
-        specifier: workspace:*
-        version: link:../../packages/domain
-
-  services/pricing-service:
-    dependencies:
-      '@orderkit/contracts':
-        specifier: workspace:*
-        version: link:../../packages/contracts
-      '@orderkit/domain':
-        specifier: workspace:*
-        version: link:../../packages/domain
-
 packages:
 
   '@ampproject/remapping@2.3.0':

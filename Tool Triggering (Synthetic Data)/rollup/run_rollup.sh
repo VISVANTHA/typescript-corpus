@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Rollup (tsc-backed) runner -- branch TS-142 (Node 21, pnpm, Microservices).
+# Rollup (tsc-backed) runner -- branch TS-141 (Node 21, pnpm, Monolith).
 set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$REPO_ROOT"

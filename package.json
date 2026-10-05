@@ -1,17 +1,15 @@
 {
-  "name": "typescript-n21-ts-142",
+  "name": "typescript-n21-ts-141",
   "version": "1.0.0",
   "private": true,
-  "description": "Node 21 / rollup / pnpm / Microservices tool-evaluation repository (branch TS-142).",
+  "description": "Node 21 / rollup / pnpm / Monolith tool-evaluation repository (branch TS-141).",
   "license": "MIT",
   "engines": {
     "node": ">=21.1 <22"
   },
   "packageManager": "pnpm@12.2.1",
-  "workspaces": [
-    "packages/*",
-    "services/*"
-  ],
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "scripts": {
     "build": "bash tools/typescript/run_tsc.sh",
     "bundle": "bash tools/esbuild/run_esbuild.sh",
