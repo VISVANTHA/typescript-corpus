@@ -25,7 +25,7 @@ const EXTERNAL = [
 ];
 
 module.exports = {
-  input: "src/index.ts",
+  input: "packages/domain/src/index.ts",
   external: EXTERNAL,
   output: {
     file: "build/bundle.cjs",
@@ -46,7 +46,7 @@ module.exports = {
       outDir: "build",
       rootDir: ".",
       sourceMap: true,
-      include: ["src/**/*.ts"],
+      include: ["packages/domain/src/**/*.ts"],
     }),
   ],
 };
