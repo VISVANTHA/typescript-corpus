@@ -3,17 +3,17 @@ label: "eslint-plugin-security"
 language: typescript
 node_version: "26"
 typescript_version: "5.9.3"
-branch: "TS-212"
-scenario: "2 - Microservices"
-architecture: "Microservices"
-module: "workspace"
+branch: "TS-211"
+scenario: "1 - Monolithic"
+architecture: "Monolith"
+module: "flat"
 package_manager: "yarn (Berry)"
 bundler: "rollup"
-project: packages/domain/package.json
+project: package.json
 tests: tests/
 tools_project: tools/
 pinned-version: "2.1.1"
 config: "eslint.config.mjs"
-target_files: [packages/domain/src/analysis/sast-fixture.ts, packages/domain/src/analysis/taint-fixture.ts]
-command: "node_modules/.bin/eslint packages/domain/src/analysis/sast-fixture.ts packages/domain/src/analysis/taint-fixture.ts --no-inline-config"
+target_files: [src/analysis/sast-fixture.ts, src/analysis/taint-fixture.ts]
+command: "node_modules/.bin/eslint src/analysis/sast-fixture.ts src/analysis/taint-fixture.ts --no-inline-config"
 expects_findings: true

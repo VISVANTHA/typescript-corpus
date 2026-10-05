@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# nyc + ts-node (coverage cross-check) runner -- branch TS-212 (Node 26, yarn (Berry), Microservices).
+# nyc + ts-node (coverage cross-check) runner -- branch TS-211 (Node 26, yarn (Berry), Monolith).
 set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$REPO_ROOT"
