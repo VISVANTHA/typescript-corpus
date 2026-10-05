@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# esbuild runner -- branch TS-199 (Node 26, bun, Monolith).
+# esbuild runner -- branch TS-194 (Node 26, npm, Microservices).
 set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$REPO_ROOT"

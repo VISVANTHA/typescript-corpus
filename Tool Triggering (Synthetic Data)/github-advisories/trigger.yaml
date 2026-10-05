@@ -3,13 +3,13 @@ label: "Dependabot / GitHub Security Advisories API"
 language: typescript
 node_version: "26"
 typescript_version: "5.9.3"
-branch: "TS-199"
-scenario: "1 - Monolithic"
-architecture: "Monolith"
-module: "flat"
-package_manager: "bun"
+branch: "TS-194"
+scenario: "2 - Microservices"
+architecture: "Microservices"
+module: "workspace"
+package_manager: "npm"
 bundler: "esbuild"
-project: package.json
+project: packages/domain/package.json
 tests: tests/
 tools_project: tools/
 pinned-version: null  # not an npm package -- see the runner
