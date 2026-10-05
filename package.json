@@ -1,15 +1,17 @@
 {
-  "name": "typescript-n24-ts-179",
+  "name": "typescript-n26-ts-200",
   "version": "1.0.0",
   "private": true,
-  "description": "Node 24 / vite / yarn (Berry) / Monolith tool-evaluation repository (branch TS-179).",
+  "description": "Node 26 / esbuild / bun / Microservices tool-evaluation repository (branch TS-200).",
   "license": "MIT",
   "engines": {
-    "node": ">=24.15 <25"
+    "node": ">=26 <27"
   },
-  "packageManager": "yarn@4.18.0",
-  "main": "dist/src/index.js",
-  "types": "dist/src/index.d.ts",
+  "packageManager": "bun@1.3.13",
+  "workspaces": [
+    "packages/*",
+    "services/*"
+  ],
   "scripts": {
     "build": "bash tools/typescript/run_tsc.sh",
     "bundle": "bash tools/esbuild/run_esbuild.sh",
@@ -42,13 +44,14 @@
     "@types/lodash": "4.14.202",
     "@types/minimist": "1.2.5",
     "@types/mocha": "10.0.10",
-    "@types/node": "24.13.3",
+    "@types/node": "26.3.0",
     "@types/node-fetch": "2.6.11",
     "@types/tar": "6.1.11",
     "@vitest/coverage-v8": "4.1.11",
     "c8": "12.0.0",
     "chai": "4.3.10",
     "dependency-cruiser": "18.2.0",
+    "esbuild": "0.28.2",
     "eslint": "10.9.1",
     "eslint-plugin-security": "4.0.1",
     "eslint-plugin-sonarjs": "4.2.0",
@@ -68,7 +71,6 @@
     "ts-prune": "0.10.3",
     "typescript": "5.9.3",
     "typescript-eslint": "8.68.0",
-    "vite": "8.2.2",
     "vitest": "4.1.11"
   }
 }
