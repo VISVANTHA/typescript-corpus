@@ -3,13 +3,13 @@ label: "fast-check"
 language: typescript
 node_version: "24"
 typescript_version: "5.9.3"
-branch: "TS-172"
-scenario: "2 - Microservices"
-architecture: "Microservices"
-module: "workspace"
+branch: "TS-171"
+scenario: "1 - Monolithic"
+architecture: "Monolith"
+module: "flat"
 package_manager: "yarn (Berry)"
 bundler: "esbuild"
-project: packages/domain/package.json
+project: package.json
 tests: tests/
 tools_project: tools/
 pinned-version: "4.9.0"
