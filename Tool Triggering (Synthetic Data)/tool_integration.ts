@@ -1,6 +1,6 @@
 #!/usr/bin/env ts-node
 /**
- * Tool integration entry point -- branch TS-171.
+ * Tool integration entry point -- branch TS-192.
  *
  * The direct analogue of the Python family's tools/tool_integration.py, which
  * is itself the ToolIntegration.targets analogue from the C# reference repo.
@@ -25,9 +25,9 @@ const TOOLS_DIR = path.join(REPO_ROOT, "tools");
 
 export const NODE_TARGET = "24";
 export const TYPESCRIPT_VERSION = "5.9.3";
-export const BUNDLER_NAME = "esbuild";
-export const PACKAGE_MANAGER = "yarn (Berry)";
-export const ARCHITECTURE = "Monolith";
+export const BUNDLER_NAME = "rollup";
+export const PACKAGE_MANAGER = "bun";
+export const ARCHITECTURE = "Microservices";
 
 interface Wiring {
   readonly dir: string;
@@ -37,7 +37,7 @@ interface Wiring {
 
 export const TOOL_WIRING: readonly Wiring[] = [
   { dir: "typescript", label: "TypeScript compiler (tsc)", wiring: "pinned 5.0.4 -> type diagnostics (must be empty)" },
-  { dir: "esbuild", label: "esbuild", wiring: "pinned 0.21.5 -> build/bundle.cjs + build/bundle.cjs.map, and the bundle is executed" },
+  { dir: "rollup", label: "Rollup (tsc-backed)", wiring: "pinned 2.80.0 -> build/bundle.cjs -- linked by Rollup, transformed by tsc via @rollup/plugin-typescript, and the bundle is exec" },
   { dir: "mocha", label: "mocha", wiring: "pinned 10.8.2 -> test results (all must pass)" },
   { dir: "vitest", label: "vitest + @vitest/coverage-v8", wiring: "pinned 0.34.6 -> coverage-vitest/coverage-summary.json -- a THIRD independent coverage number, alongside c8 and nyc" },
   { dir: "biome", label: "biome", wiring: "pinned 2.5.10 -> planted findings expected" },
@@ -79,7 +79,7 @@ function runnerFor(dir: string): string | null {
 
 function banner(): number {
   console.log(
-    `=== Tool integration -- branch TS-171 ` +
+    `=== Tool integration -- branch TS-192 ` +
       `(Node ${NODE_TARGET} / TypeScript ${TYPESCRIPT_VERSION} / ` +
       `${BUNDLER_NAME} / ${PACKAGE_MANAGER} / ${ARCHITECTURE}) ===`,
   );
