@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Lizard runner -- branch TS-125 (Node 21, pnpm, Monolith).
+# Lizard runner -- branch TS-124 (Node 21, yarn (Berry), Microservices).
 set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$REPO_ROOT"
@@ -24,7 +24,7 @@ if ! command -v lizard >/dev/null 2>&1; then
   echo "[lizard] SKIP -- lizard not installed (pip install lizard)"; exit 0
 fi
 echo "[lizard] version: $(lizard --version 2>&1 | head -1)"
-lizard -l typescript src --csv > reports/lizard.csv || true
+lizard -l typescript packages/domain/src --csv > reports/lizard.csv || true
 python3 - <<'PY'
 import csv, io, os
 rows = list(csv.reader(open("reports/lizard.csv", encoding="utf-8"))) if os.path.exists("reports/lizard.csv") else []

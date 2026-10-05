@@ -1,15 +1,15 @@
-# CI for branch TS-125.
+# CI for branch TS-124.
 #
 # The point of this file: it INVOKES EVERY WIRED TOOL and uploads what they
 # produce. FlintAtlas and WillowBrook ran only `npm install` and `npm test`, so
 # not one of their declared tools was ever executed in CI. Gate G6.
-name: TS-125
+name: TS-124
 
 on:
   push:
-    branches: ["TS-125"]
+    branches: ["TS-124"]
   pull_request:
-    branches: ["TS-125"]
+    branches: ["TS-124"]
   workflow_dispatch:
 
 jobs:
@@ -25,10 +25,10 @@ jobs:
           node-version: "21.7.3"
 
       - name: Package manager
-        run: npm i -g pnpm@6.35.1
+        run: corepack enable && corepack prepare yarn@3.8.7 --activate
 
       - name: Install (frozen -- gate G4)
-        run: pnpm install --frozen-lockfile
+        run: yarn install --immutable
 
       - name: Verify every tool is wired
         run: node_modules/.bin/ts-node tools/tool_integration.ts --verify
@@ -122,7 +122,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: tool-reports-TS-125
+          name: tool-reports-TS-124
           path: |
             reports/
             coverage/
