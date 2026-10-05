@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Grype runner -- branch TS-208 (Node 26, bun, Microservices).
+# Grype runner -- branch TS-207 (Node 26, bun, Monolith).
 set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$REPO_ROOT"
