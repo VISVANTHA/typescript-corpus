@@ -3,17 +3,17 @@ label: "TypeScript compiler (tsc)"
 language: typescript
 node_version: "22"
 typescript_version: "5.9.3"
-branch: "TS-167"
-scenario: "1 - Monolithic"
-architecture: "Monolith"
-module: "flat"
-package_manager: "bun"
+branch: "TS-162"
+scenario: "2 - Microservices"
+architecture: "Microservices"
+module: "workspace"
+package_manager: "npm"
 bundler: "rollup"
-project: package.json
+project: packages/domain/package.json
 tests: tests/
 tools_project: tools/
 pinned-version: "5.0.4"
 config: "tsconfig.json"
-target_files: [src]
+target_files: [packages/domain/src]
 command: "bash tools/typescript/run_tsc.sh"
 produces: "type diagnostics (must be empty)"

@@ -3,17 +3,17 @@ label: "Rollup (tsc-backed)"
 language: typescript
 node_version: "22"
 typescript_version: "5.9.3"
-branch: "TS-167"
-scenario: "1 - Monolithic"
-architecture: "Monolith"
-module: "flat"
-package_manager: "bun"
+branch: "TS-162"
+scenario: "2 - Microservices"
+architecture: "Microservices"
+module: "workspace"
+package_manager: "npm"
 bundler: "rollup"
-project: package.json
+project: packages/domain/package.json
 tests: tests/
 tools_project: tools/
 pinned-version: "2.80.0"
 config: "rollup.config.cjs"
-target_files: [src/index.ts]
+target_files: [packages/domain/src/index.ts]
 command: "node_modules/.bin/rollup --config rollup.config.cjs"
 produces: "build/bundle.cjs -- linked by Rollup, transformed by tsc via @rollup/plugin-typescript, and the bundle is executed"
