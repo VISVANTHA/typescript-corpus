@@ -1,8 +1,8 @@
 {
-  "name": "typescript-n26-ts-194",
+  "name": "typescript-n26-ts-193",
   "version": "1.0.0",
   "private": true,
-  "description": "Node 26 / esbuild / npm / Microservices tool-evaluation repository (branch TS-194).",
+  "description": "Node 26 / esbuild / npm / Monolith tool-evaluation repository (branch TS-193).",
   "license": "MIT",
   "engines": {
     "node": ">=26 <27"
@@ -12,10 +12,8 @@
     "protobufjs@7.6.6": true,
     "esbuild@0.28.2": true
   },
-  "workspaces": [
-    "packages/*",
-    "services/*"
-  ],
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "scripts": {
     "build": "bash tools/typescript/run_tsc.sh",
     "bundle": "bash tools/esbuild/run_esbuild.sh",

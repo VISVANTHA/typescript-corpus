@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# OSS Review Toolkit (cdxgen license proxy) runner -- branch TS-194 (Node 26, npm, Microservices).
+# OSS Review Toolkit (cdxgen license proxy) runner -- branch TS-193 (Node 26, npm, Monolith).
 set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$REPO_ROOT"
