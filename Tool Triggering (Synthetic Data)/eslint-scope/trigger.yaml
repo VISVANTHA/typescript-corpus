@@ -3,17 +3,17 @@ label: "eslint-scope"
 language: typescript
 node_version: "26"
 typescript_version: "5.9.3"
-branch: "TS-201"
-scenario: "1 - Monolithic"
-architecture: "Monolith"
-module: "flat"
-package_manager: "npm"
+branch: "TS-206"
+scenario: "2 - Microservices"
+architecture: "Microservices"
+module: "workspace"
+package_manager: "pnpm"
 bundler: "vite"
-project: package.json
+project: packages/domain/package.json
 tests: tests/
 tools_project: tools/
 pinned-version: "7.2.2"
 config: null
-target_files: [src/analysis/dead-code.ts]
+target_files: [packages/domain/src/analysis/dead-code.ts]
 command: "node tools/eslint-scope/run_eslint_scope.js"
 produces: "scope/variable inventory per function"
