@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* eslint-scope runner -- branch TS-143.
+/* eslint-scope runner -- branch TS-138.
  * Builds a scope tree over the planted dead-code fixture and reports, per
  * scope, how many variables are declared and how many are never referenced.
  * This is the structural counterpart to ts-prune's export-level view.
@@ -12,7 +12,7 @@ const espree = require("espree");
 const ts = require("typescript");
 
 const REPO_ROOT = path.resolve(__dirname, "..", "..");
-const TARGET = path.join(REPO_ROOT, "src", "analysis", "dead-code.ts");
+const TARGET = path.join(REPO_ROOT, "packages/domain/src", "analysis", "dead-code.ts");
 
 const pkgver = (n) => { try { return JSON.parse(fs.readFileSync(path.join(REPO_ROOT, "node_modules", n, "package.json"), "utf8")).version; } catch (e) { return "unresolved"; } };
 console.log("[eslint-scope] version:", pkgver("eslint-scope"));
