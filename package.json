@@ -1,17 +1,15 @@
 {
-  "name": "typescript-n20-ts-100",
+  "name": "typescript-n20-ts-099",
   "version": "1.0.0",
   "private": true,
-  "description": "Node 20 / esbuild / yarn (Berry) / Microservices tool-evaluation repository (branch TS-100).",
+  "description": "Node 20 / esbuild / yarn (Berry) / Monolith tool-evaluation repository (branch TS-099).",
   "license": "MIT",
   "engines": {
     "node": ">=20.19 <21"
   },
   "packageManager": "yarn@4.18.0",
-  "workspaces": [
-    "packages/*",
-    "services/*"
-  ],
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "scripts": {
     "build": "bash tools/typescript/run_tsc.sh",
     "bundle": "bash tools/esbuild/run_esbuild.sh",
