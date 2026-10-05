@@ -3,13 +3,13 @@ label: "@cyclonedx/cdxgen"
 language: typescript
 node_version: "26"
 typescript_version: "5.9.3"
-branch: "TS-213"
-scenario: "1 - Monolithic"
-architecture: "Monolith"
-module: "flat"
-package_manager: "pnpm"
+branch: "TS-212"
+scenario: "2 - Microservices"
+architecture: "Microservices"
+module: "workspace"
+package_manager: "yarn (Berry)"
 bundler: "rollup"
-project: package.json
+project: packages/domain/package.json
 tests: tests/
 tools_project: tools/
 pinned-version: "8.6.3"
