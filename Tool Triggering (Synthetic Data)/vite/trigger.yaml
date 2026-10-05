@@ -3,17 +3,17 @@ label: "Vite (esbuild-backed)"
 language: typescript
 node_version: "24"
 typescript_version: "5.9.3"
-branch: "TS-177"
-scenario: "1 - Monolithic"
-architecture: "Monolith"
-module: "flat"
-package_manager: "npm"
+branch: "TS-182"
+scenario: "2 - Microservices"
+architecture: "Microservices"
+module: "workspace"
+package_manager: "pnpm"
 bundler: "vite"
-project: package.json
+project: packages/domain/package.json
 tests: tests/
 tools_project: tools/
 pinned-version: "2.9.18"
 config: "vite.config.mts"
-target_files: [src/index.ts]
+target_files: [packages/domain/src/index.ts]
 command: "node_modules/.bin/vite build --config vite.config.mts"
 produces: "build/bundle.cjs -- emitted by Vite (Rollup + its own esbuild transform), and the bundle is executed"

@@ -3,13 +3,13 @@ label: "fast-check"
 language: typescript
 node_version: "24"
 typescript_version: "5.9.3"
-branch: "TS-177"
-scenario: "1 - Monolithic"
-architecture: "Monolith"
-module: "flat"
-package_manager: "npm"
+branch: "TS-182"
+scenario: "2 - Microservices"
+architecture: "Microservices"
+module: "workspace"
+package_manager: "pnpm"
 bundler: "vite"
-project: package.json
+project: packages/domain/package.json
 tests: tests/
 tools_project: tools/
 pinned-version: "4.9.0"
