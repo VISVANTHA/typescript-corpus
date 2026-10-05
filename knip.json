@@ -1,7 +1,7 @@
 {
-  "$schema": "https://unpkg.com/knip@6/schema.json",
-  "entry": ["src/index.ts", "tests/**/*.spec.ts"],
-  "project": ["src/**/*.ts"],
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "entry": ["packages/domain/src/index.ts", "tests/**/*.spec.ts"],
+  "project": ["packages/domain/src/**/*.ts"],
   "ignore": ["tools/**", "dist/**", "build/**"],
   "ignoreBinaries": ["biome", "depcruise", "grype", "lizard"],
   "ignoreExportsUsedInFile": true,
@@ -10,7 +10,7 @@
     "npm-check-updates", "jscpd", "madge", "dependency-cruiser", "ts-prune",
     "@biomejs/biome", "c8", "nyc", "espree", "eslint-scope", "source-map-support",
     "esbuild", "vite", "rollup", "ts-morph", "knip", "vitest", "@vitest/coverage-v8",
-    "@opentelemetry/api", "@opentelemetry/sdk-node", "@opentelemetry/sdk-trace-base",
+    "@opentelemetry/sdk-node", "@opentelemetry/sdk-trace-base",
     "@types/lodash", "@types/minimist", "@types/node-fetch", "@types/tar",
     "@types/node", "@types/mocha", "@types/chai"
   ]

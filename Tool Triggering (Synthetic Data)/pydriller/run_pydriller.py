@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""pydriller runner -- branch TS-107.
+"""pydriller runner -- branch TS-128.
 
 Mines this repository's own history for the three signals the history-tool
 family is assigned to produce: churn, change coupling and ownership.
@@ -48,7 +48,16 @@ def via_pydriller():
 def via_git():
     """Fallback so the runner still produces the metric without pydriller."""
     log = subprocess.check_output(
-        ["git", "-C", REPO_ROOT, "log", "--pretty=format:%H%x01%ae%x01%B%x02", "--numstat"],
+        # Record layout:  <sha>  <email>  <full body>  <numstat>.
+        # The body is MULTI-LINE, so it needs its own terminator. An earlier
+        # revision used "%H%x01%ae%x01%B%x02" and then split each record on the
+        # first newline, treating everything after the commit SUBJECT as
+        # numstat. The Co-authored-by: trailers -- the entire point of the
+        # ownership metric -- landed in the stats half and were never counted,
+        # and the commit total collapsed to 1. reports/history.json was still
+        # written, still derived from a real git log, and still wrong.
+        ["git", "-C", REPO_ROOT, "log",
+         "--pretty=format:%x02%H%x01%ae%x01%B%x03", "--numstat"],
         text=True, errors="replace",
     )
     churn = Counter()
@@ -57,11 +66,10 @@ def via_git():
     commits = 0
 
     for block in log.split("\x02"):
-        block = block.strip("\n")
         if not block.strip():
             continue
-        header, _, stats = block.partition("\n")
-        parts = header.split("\x01")
+        head, _, stats = block.partition("\x03")
+        parts = head.split("\x01")
         if len(parts) < 3:
             continue
         commits += 1

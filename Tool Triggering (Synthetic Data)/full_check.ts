@@ -1,6 +1,6 @@
 #!/usr/bin/env ts-node
 /**
- * Cross-file consistency audit -- branch TS-107.
+ * Cross-file consistency audit -- branch TS-128.
  *
  * The Python family's hard-won rule applies here verbatim: **read expected
  * values from the repository, never from a hard-coded list.** A hard-coded
@@ -48,9 +48,18 @@ if (dataset.nodeVersion !== nodeMajor) {
   fail(`dataset.json nodeVersion ${dataset.nodeVersion} != .nvmrc major ${nodeMajor}`);
 } else ok(`.nvmrc (${nvmrc}) agrees with dataset.json nodeVersion`);
 
-if (!String(pkg.engines && pkg.engines.node).includes("12")) {
-  fail(`package.json engines.node (${pkg.engines && pkg.engines.node}) does not target Node 12`);
-} else ok(`package.json engines.node = ${pkg.engines.node}`);
+// Derived from .nvmrc, NOT hard-coded. An earlier revision of this checker
+// asserted `.includes("12")` literally, so every corpus after the Node 12
+// family reported a spurious FAIL here -- a checker that is wrong about the
+// thing it exists to check is the same silent-success class the corpus is
+// built to expose, just inverted into a silent failure.
+{
+  const declared = String((pkg.engines && pkg.engines.node) || "");
+  const want = new RegExp(`(^|[^0-9])${nodeMajor}([^0-9]|$)`);
+  if (!want.test(declared)) {
+    fail(`package.json engines.node (${declared}) does not target Node ${nodeMajor}`);
+  } else ok(`package.json engines.node = ${declared} (targets Node ${nodeMajor})`);
+}
 
 const ci = exists(".github/workflows/ci.yml") ? read(".github/workflows/ci.yml") : "";
 if (!ci.includes(nvmrc)) fail(`CI node-version does not pin ${nvmrc}`);

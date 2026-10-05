@@ -1,36 +1,41 @@
 {
-  "branchId": "TS-107",
-  "repository": "typescript-n12-001-005",
+  "branchId": "TS-128",
+  "repository": "typescript-n21-126-130",
   "language": "TypeScript",
   "typescriptVersion": "5.9.3",
-  "nodeVersion": "20",
-  "nodeVersionVerified": "20.20.2",
-  "bundler": "vite",
-  "bundlerVersion": "8.2.2",
-  "packageManager": "yarn (Berry)",
-  "packageManagerVersion": "4.18.0",
-  "architecture": "Monolith",
-  "scenario": "1 - Monolithic",
-  "module": "flat",
-  "sourceRoot": "src",
+  "nodeVersion": "21",
+  "nodeVersionVerified": "21.7.3",
+  "bundler": "esbuild",
+  "bundlerVersion": "0.28.2",
+  "packageManager": "bun",
+  "packageManagerVersion": "1.3.13",
+  "architecture": "Microservices",
+  "scenario": "2 - Microservices",
+  "module": "workspace",
+  "sourceRoot": "packages/domain/src",
   "deployableUnits": [
-    "typescript-n20-ts-107"
+    "gateway-service",
+    "order-service",
+    "pricing-service"
   ],
-  "workspaces": [],
+  "workspaces": [
+    "packages/*",
+    "services/*"
+  ],
   "toolsWired": 29,
-  "bundlerNote": "vite 8.2.2 -- current major, needs ^20.19.0 || >=22.12.0. Transform: its own bundled esbuild. Linker: Rollup.",
+  "bundlerNote": "esbuild 0.28.2 standalone (current major, engines >=18). Transform and linker are both esbuild.",
   "coveragePrimary": "c8",
   "coverageCrossCheck": "nyc + ts-node",
   "plantedFixtures": {
     "duplication": [
-      "src/services/retail-order-processor.ts",
-      "src/services/wholesale-order-processor.ts"
+      "packages/domain/src/services/retail-order-processor.ts",
+      "packages/domain/src/services/wholesale-order-processor.ts"
     ],
-    "complexity": "src/analysis/complexity-sample.ts",
-    "sast": "src/analysis/sast-fixture.ts",
-    "taint": "src/analysis/taint-fixture.ts",
-    "deadCode": "src/analysis/dead-code.ts",
-    "callGraph": "src/analysis/call-graph-sample.ts",
+    "complexity": "packages/domain/src/analysis/complexity-sample.ts",
+    "sast": "packages/domain/src/analysis/sast-fixture.ts",
+    "taint": "packages/domain/src/analysis/taint-fixture.ts",
+    "deadCode": "packages/domain/src/analysis/dead-code.ts",
+    "callGraph": "packages/domain/src/analysis/call-graph-sample.ts",
     "vulnerablePins": [
       "lodash@4.17.15",
       "minimist@1.2.5",
@@ -43,6 +48,7 @@
     "OSV-Scanner": "api.osv.dev unreachable -- 403 at the egress proxy",
     "npm downloads API": "api.npmjs.org unreachable -- 403 at the egress proxy",
     "npm-check-updates@19.6.6": "requires Node >=18; pinned to 16.14.20 instead",
-    "_note": "knip, vitest and biome were skipped on the Node 12 and Node 14 corpora because no release supported those runtimes. All three are wired here -- Node 16 is the first version where knip runs."
+    "_note": "All 29 tools are wired. Note the versions: Node 21 is not an LTS major, so twelve tools resolve OLDER here than on Node 20 despite the runtime being newer -- see DEV_DEPS in the generator, and TRAPS-NODE21.md.",
+    "@types/node@21": "no such package -- DefinitelyTyped publishes LTS majors only; pinned to 20.19.9"
   }
 }

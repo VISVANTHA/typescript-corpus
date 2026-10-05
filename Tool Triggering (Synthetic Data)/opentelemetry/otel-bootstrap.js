@@ -29,6 +29,17 @@ class CollectingExporter {
 }
 
 const sdk = new NodeSDK({
+  // BOTH keys, deliberately.
+  //
+  // The OTEL JS 1.x line (sdk-node <= 0.5x, what the Node 12/14 repos install)
+  // takes a single `spanProcessor`. The 2.x line (sdk-node >= 0.200, installed
+  // here) renamed it to `spanProcessors`, an ARRAY -- and NodeSDK ignores
+  // unknown options rather than rejecting them. Pass only the 1.x key to a 2.x
+  // SDK and it starts cleanly, registers the default (no-op) processor, exports
+  // nothing, and exits 0. reports/otel-spans.json is then a valid, empty,
+  // completely wrong measurement. That is the corpus's whole subject, so the
+  // corpus itself must not ship it.
+  spanProcessors: [new SimpleSpanProcessor(new CollectingExporter())],
   spanProcessor: new SimpleSpanProcessor(new CollectingExporter()),
 });
 

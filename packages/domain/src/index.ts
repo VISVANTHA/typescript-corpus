@@ -2,6 +2,7 @@ import { OrderService } from "./services/order-service";
 import { RetailOrderProcessor } from "./services/retail-order-processor";
 import { WholesaleOrderProcessor } from "./services/wholesale-order-processor";
 import { snapshot } from "./platform/integrations";
+import { withSpan } from "./platform/tracing";
 import type { OrderRecord, PricedOrder } from "./models/order-record";
 
 export { OrderService } from "./services/order-service";
@@ -10,6 +11,7 @@ export { WholesaleOrderProcessor } from "./services/wholesale-order-processor";
 export { discountRate, volumeBonus, effectiveRate } from "./services/pricing-rules";
 export { taxRateFor, applyTax, round2 } from "./models/tax-table";
 export { parseOptions, snapshot, describeExportStack } from "./platform/integrations";
+export { tracer, withSpan } from "./platform/tracing";
 export * from "./models/order-record";
 
 /** Deterministic sample book -- the same input every run, so tool output is comparable. */
@@ -39,20 +41,31 @@ export function run(): RunSummary {
   // pins genuinely reachable rather than merely declared. knip reports
   // declared-but-unreachable dependencies, so an unused pin would contradict
   // tools/grype/PLANTED-CVES.md.
-  const orders = snapshot(sampleOrders());
-  const service = new OrderService();
-  const retail = new RetailOrderProcessor(service);
-  const wholesale = new WholesaleOrderProcessor(service);
+  return withSpan("orderkit.run", { "orderkit.stage": "pipeline" }, () => {
+    const orders = withSpan("orderkit.snapshot", { "orderkit.stage": "load" }, () =>
+      snapshot(sampleOrders()));
+    const service = new OrderService();
+    const retail = new RetailOrderProcessor(service);
+    const wholesale = new WholesaleOrderProcessor(service);
 
-  retail.process(orders);
-  wholesale.process(orders);
+    withSpan("orderkit.process.retail",
+      { "orderkit.channel": "retail", "orderkit.orders": orders.length },
+      () => retail.process(orders));
+    withSpan("orderkit.process.wholesale",
+      { "orderkit.channel": "wholesale", "orderkit.orders": orders.length },
+      () => wholesale.process(orders));
 
-  return {
-    runtime: process.version,
-    priced: service.priceAll(orders).priced,
-    retail: retail.summarise(),
-    wholesale: wholesale.summarise(),
-  };
+    const priced = withSpan("orderkit.price",
+      { "orderkit.orders": orders.length },
+      () => service.priceAll(orders).priced);
+
+    return {
+      runtime: process.version,
+      priced,
+      retail: retail.summarise(),
+      wholesale: wholesale.summarise(),
+    };
+  });
 }
 
 /* istanbul ignore next -- entry point guard, exercised by the CLI smoke test */
