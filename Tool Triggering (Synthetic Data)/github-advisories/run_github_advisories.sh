@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Dependabot / GitHub Security Advisories API runner -- branch TS-157 (Node 22, pnpm, Monolith).
+# Dependabot / GitHub Security Advisories API runner -- branch TS-156 (Node 22, yarn (Berry), Microservices).
 set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$REPO_ROOT"

@@ -1,0 +1,17 @@
+{
+  "name": "@orderkit/pricing-service",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Owns tier and volume pricing rules.",
+  "main": "src/index.ts",
+  "engines": {
+    "node": ">=22.22 <23"
+  },
+  "dependencies": {
+    "@orderkit/contracts": "workspace:*",
+    "@orderkit/domain": "workspace:*"
+  },
+  "scripts": {
+    "start": "node ../../dist/services/pricing-service/src/index.js"
+  }
+}

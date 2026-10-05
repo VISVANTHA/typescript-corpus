@@ -1,15 +1,17 @@
 {
-  "name": "typescript-n22-ts-157",
+  "name": "typescript-n22-ts-156",
   "version": "1.0.0",
   "private": true,
-  "description": "Node 22 / vite / pnpm / Monolith tool-evaluation repository (branch TS-157).",
+  "description": "Node 22 / vite / yarn (Berry) / Microservices tool-evaluation repository (branch TS-156).",
   "license": "MIT",
   "engines": {
     "node": ">=22.22 <23"
   },
-  "packageManager": "pnpm@12.2.1",
-  "main": "dist/src/index.js",
-  "types": "dist/src/index.d.ts",
+  "packageManager": "yarn@4.18.0",
+  "workspaces": [
+    "packages/*",
+    "services/*"
+  ],
   "scripts": {
     "build": "bash tools/typescript/run_tsc.sh",
     "bundle": "bash tools/esbuild/run_esbuild.sh",
