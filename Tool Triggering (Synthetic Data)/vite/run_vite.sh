@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Vite (esbuild-backed) runner -- branch TS-153 (Node 22, npm, Monolith).
+# Vite (esbuild-backed) runner -- branch TS-158 (Node 22, pnpm, Microservices).
 set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$REPO_ROOT"
