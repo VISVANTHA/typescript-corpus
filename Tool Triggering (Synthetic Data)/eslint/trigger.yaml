@@ -3,17 +3,17 @@ label: "eslint"
 language: typescript
 node_version: "26"
 typescript_version: "5.9.3"
-branch: "TS-209"
-scenario: "1 - Monolithic"
-architecture: "Monolith"
-module: "flat"
-package_manager: "npm"
+branch: "TS-214"
+scenario: "2 - Microservices"
+architecture: "Microservices"
+module: "workspace"
+package_manager: "pnpm"
 bundler: "rollup"
-project: package.json
+project: packages/domain/package.json
 tests: tests/
 tools_project: tools/
 pinned-version: "8.57.1"
 config: "eslint.config.mjs"
-target_files: [src, src/analysis/lint-violations.ts]
-command: "node_modules/.bin/eslint 'src/**/*.ts' --format unix"
+target_files: [packages/domain/src, packages/domain/src/analysis/lint-violations.ts]
+command: "node_modules/.bin/eslint 'packages/domain/src/**/*.ts' --format unix"
 expects_findings: true
