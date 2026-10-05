@@ -3,17 +3,17 @@ label: "dependency-cruiser"
 language: typescript
 node_version: "20"
 typescript_version: "5.9.3"
-branch: "TS-120"
-scenario: "2 - Microservices"
-architecture: "Microservices"
-module: "workspace"
+branch: "TS-119"
+scenario: "1 - Monolithic"
+architecture: "Monolith"
+module: "flat"
 package_manager: "bun"
 bundler: "rollup"
-project: packages/domain/package.json
+project: package.json
 tests: tests/
 tools_project: tools/
 pinned-version: "11.18.0"
 config: "tools/dependency-cruiser/.dependency-cruiser.cjs"
-target_files: [packages/domain/src]
-command: "node_modules/.bin/depcruise --config tools/dependency-cruiser/.dependency-cruiser.cjs 'packages/domain/src/**/*.ts'"
+target_files: [src]
+command: "node_modules/.bin/depcruise --config tools/dependency-cruiser/.dependency-cruiser.cjs 'src/**/*.ts'"
 produces: "dependency graph + rule violations + fan-in/fan-out"
