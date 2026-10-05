@@ -3,17 +3,17 @@ label: "@stryker-mutator/core"
 language: typescript
 node_version: "21"
 typescript_version: "5.9.3"
-branch: "TS-137"
-scenario: "1 - Monolithic"
-architecture: "Monolith"
-module: "flat"
-package_manager: "npm"
+branch: "TS-142"
+scenario: "2 - Microservices"
+architecture: "Microservices"
+module: "workspace"
+package_manager: "pnpm"
 bundler: "rollup"
-project: package.json
+project: packages/domain/package.json
 tests: tests/
 tools_project: tools/
 pinned-version: "5.6.1"
 config: "tools/stryker/stryker.conf.json"
-target_files: [src/services]
+target_files: [packages/domain/src/services]
 command: "node_modules/.bin/stryker run tools/stryker/stryker.conf.json"
 produces: "reports/mutation/mutation.json -- mutation score"

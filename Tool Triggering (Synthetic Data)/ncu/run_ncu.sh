@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# npm-check-updates runner -- branch TS-137 (Node 21, npm, Monolith).
+# npm-check-updates runner -- branch TS-142 (Node 21, pnpm, Microservices).
 set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$REPO_ROOT"
