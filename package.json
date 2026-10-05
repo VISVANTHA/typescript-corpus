@@ -1,15 +1,17 @@
 {
-  "name": "typescript-n20-ts-111",
+  "name": "typescript-n20-ts-106",
   "version": "1.0.0",
   "private": true,
-  "description": "Node 20 / vite / bun / Monolith tool-evaluation repository (branch TS-111).",
+  "description": "Node 20 / vite / npm / Microservices tool-evaluation repository (branch TS-106).",
   "license": "MIT",
   "engines": {
     "node": ">=20.19 <21"
   },
-  "packageManager": "bun@1.3.13",
-  "main": "dist/src/index.js",
-  "types": "dist/src/index.d.ts",
+  "packageManager": "npm@11.19.1",
+  "workspaces": [
+    "packages/*",
+    "services/*"
+  ],
   "scripts": {
     "build": "bash tools/typescript/run_tsc.sh",
     "bundle": "bash tools/esbuild/run_esbuild.sh",
