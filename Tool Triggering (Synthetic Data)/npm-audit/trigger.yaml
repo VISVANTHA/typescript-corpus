@@ -3,17 +3,17 @@ label: "npm audit / npm ls"
 language: typescript
 node_version: "20"
 typescript_version: "5.9.3"
-branch: "TS-101"
-scenario: "1 - Monolithic"
-architecture: "Monolith"
-module: "flat"
-package_manager: "pnpm"
+branch: "TS-100"
+scenario: "2 - Microservices"
+architecture: "Microservices"
+module: "workspace"
+package_manager: "yarn (Berry)"
 bundler: "esbuild"
-project: package.json
+project: packages/domain/package.json
 tests: tests/
 tools_project: tools/
 pinned-version: null  # not an npm package -- see the runner
 config: null
 target_files: [package.json]
-command: "pnpm audit --json || true"
+command: "yarn npm audit --json --recursive || true"
 expects_findings: true
