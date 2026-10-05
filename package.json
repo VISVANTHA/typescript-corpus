@@ -1,15 +1,17 @@
 {
-  "name": "typescript-n21-ts-135",
+  "name": "typescript-n21-ts-130",
   "version": "1.0.0",
   "private": true,
-  "description": "Node 21 / vite / bun / Monolith tool-evaluation repository (branch TS-135).",
+  "description": "Node 21 / vite / npm / Microservices tool-evaluation repository (branch TS-130).",
   "license": "MIT",
   "engines": {
     "node": ">=21.1 <22"
   },
-  "packageManager": "bun@1.3.13",
-  "main": "dist/src/index.js",
-  "types": "dist/src/index.d.ts",
+  "packageManager": "npm@10.9.9",
+  "workspaces": [
+    "packages/*",
+    "services/*"
+  ],
   "scripts": {
     "build": "bash tools/typescript/run_tsc.sh",
     "bundle": "bash tools/esbuild/run_esbuild.sh",
