@@ -3,13 +3,13 @@ label: "fast-check"
 language: typescript
 node_version: "21"
 typescript_version: "5.9.3"
-branch: "TS-138"
-scenario: "2 - Microservices"
-architecture: "Microservices"
-module: "workspace"
+branch: "TS-137"
+scenario: "1 - Monolithic"
+architecture: "Monolith"
+module: "flat"
 package_manager: "npm"
 bundler: "rollup"
-project: packages/domain/package.json
+project: package.json
 tests: tests/
 tools_project: tools/
 pinned-version: "4.9.0"

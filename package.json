@@ -1,17 +1,15 @@
 {
-  "name": "typescript-n21-ts-138",
+  "name": "typescript-n21-ts-137",
   "version": "1.0.0",
   "private": true,
-  "description": "Node 21 / rollup / npm / Microservices tool-evaluation repository (branch TS-138).",
+  "description": "Node 21 / rollup / npm / Monolith tool-evaluation repository (branch TS-137).",
   "license": "MIT",
   "engines": {
     "node": ">=21.1 <22"
   },
   "packageManager": "npm@10.9.9",
-  "workspaces": [
-    "packages/*",
-    "services/*"
-  ],
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "scripts": {
     "build": "bash tools/typescript/run_tsc.sh",
     "bundle": "bash tools/esbuild/run_esbuild.sh",
