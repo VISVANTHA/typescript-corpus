@@ -1,17 +1,15 @@
 {
-  "name": "typescript-n20-ts-114",
+  "name": "typescript-n20-ts-113",
   "version": "1.0.0",
   "private": true,
-  "description": "Node 20 / rollup / npm / Microservices tool-evaluation repository (branch TS-114).",
+  "description": "Node 20 / rollup / npm / Monolith tool-evaluation repository (branch TS-113).",
   "license": "MIT",
   "engines": {
     "node": ">=20.19 <21"
   },
   "packageManager": "npm@11.19.1",
-  "workspaces": [
-    "packages/*",
-    "services/*"
-  ],
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "scripts": {
     "build": "bash tools/typescript/run_tsc.sh",
     "bundle": "bash tools/esbuild/run_esbuild.sh",

@@ -1,5 +1,5 @@
 {
-  "branchId": "TS-114",
+  "branchId": "TS-113",
   "repository": "typescript-n12-001-005",
   "language": "TypeScript",
   "typescriptVersion": "5.9.3",
@@ -9,33 +9,28 @@
   "bundlerVersion": "4.62.5",
   "packageManager": "npm",
   "packageManagerVersion": "11.19.1",
-  "architecture": "Microservices",
-  "scenario": "2 - Microservices",
-  "module": "workspace",
-  "sourceRoot": "packages/domain/src",
+  "architecture": "Monolith",
+  "scenario": "1 - Monolithic",
+  "module": "flat",
+  "sourceRoot": "src",
   "deployableUnits": [
-    "gateway-service",
-    "order-service",
-    "pricing-service"
+    "typescript-n20-ts-113"
   ],
-  "workspaces": [
-    "packages/*",
-    "services/*"
-  ],
+  "workspaces": [],
   "toolsWired": 29,
   "bundlerNote": "rollup 4.62.5 -- newest installable; 4.63.x is inside the Yarn quarantine window. Transform: tsc 5.9.3 via @rollup/plugin-typescript 12.3.0. Linker: Rollup.",
   "coveragePrimary": "c8",
   "coverageCrossCheck": "nyc + ts-node",
   "plantedFixtures": {
     "duplication": [
-      "packages/domain/src/services/retail-order-processor.ts",
-      "packages/domain/src/services/wholesale-order-processor.ts"
+      "src/services/retail-order-processor.ts",
+      "src/services/wholesale-order-processor.ts"
     ],
-    "complexity": "packages/domain/src/analysis/complexity-sample.ts",
-    "sast": "packages/domain/src/analysis/sast-fixture.ts",
-    "taint": "packages/domain/src/analysis/taint-fixture.ts",
-    "deadCode": "packages/domain/src/analysis/dead-code.ts",
-    "callGraph": "packages/domain/src/analysis/call-graph-sample.ts",
+    "complexity": "src/analysis/complexity-sample.ts",
+    "sast": "src/analysis/sast-fixture.ts",
+    "taint": "src/analysis/taint-fixture.ts",
+    "deadCode": "src/analysis/dead-code.ts",
+    "callGraph": "src/analysis/call-graph-sample.ts",
     "vulnerablePins": [
       "lodash@4.17.15",
       "minimist@1.2.5",
