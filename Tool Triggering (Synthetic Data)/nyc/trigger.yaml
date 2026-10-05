@@ -3,17 +3,17 @@ label: "nyc + ts-node (coverage cross-check)"
 language: typescript
 node_version: "24"
 typescript_version: "5.9.3"
-branch: "TS-185"
-scenario: "1 - Monolithic"
-architecture: "Monolith"
-module: "flat"
-package_manager: "npm"
+branch: "TS-190"
+scenario: "2 - Microservices"
+architecture: "Microservices"
+module: "workspace"
+package_manager: "pnpm"
 bundler: "rollup"
-project: package.json
+project: packages/domain/package.json
 tests: tests/
 tools_project: tools/
 pinned-version: "15.1.0"
 config: "tools/nyc/.nycrc.json"
-target_files: [src, tests]
+target_files: [packages/domain/src, tests]
 command: "node_modules/.bin/nyc --nycrc-path tools/nyc/.nycrc.json node_modules/.bin/mocha --config tools/mocha/.mocharc.cjs"
 produces: "coverage-nyc/coverage-summary.json -- instruments .ts directly, never via source-map remap"
