@@ -1,9 +1,9 @@
 {
   "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
-  "packageManager": "npm",
+  "packageManager": "pnpm",
   "testRunner": "mocha",
   "mochaOptions": { "config": "tools/mocha/.mocharc.cjs" },
-  "mutate": ["src/services/**/*.ts", "src/models/**/*.ts", "!src/analysis/**"],
+  "mutate": ["packages/domain/src/services/**/*.ts", "packages/domain/src/models/**/*.ts", "!packages/domain/src/analysis/**"],
   "checkers": [],
   "reporters": ["progress", "clear-text", "json"],
   "jsonReporter": { "fileName": "reports/mutation/mutation.json" },

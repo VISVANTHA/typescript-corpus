@@ -1,6 +1,6 @@
 import { expect } from "chai";
-import { discountRate, volumeBonus, effectiveRate } from "../src/services/pricing-rules";
-import { taxRateFor, applyTax, round2 } from "../src/models/tax-table";
+import { discountRate, volumeBonus, effectiveRate } from "../packages/domain/src/services/pricing-rules";
+import { taxRateFor, applyTax, round2 } from "../packages/domain/src/models/tax-table";
 
 describe("pricing rules", () => {
   it("maps every tier to its rate", () => {
