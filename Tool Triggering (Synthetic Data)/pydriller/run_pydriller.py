@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""pydriller runner -- branch TS-169.
+"""pydriller runner -- branch TS-174.
 
 Mines this repository's own history for the three signals the history-tool
 family is assigned to produce: churn, change coupling and ownership.
