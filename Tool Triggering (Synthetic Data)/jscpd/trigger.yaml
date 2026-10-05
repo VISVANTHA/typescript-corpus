@@ -3,17 +3,17 @@ label: "jscpd"
 language: typescript
 node_version: "24"
 typescript_version: "5.9.3"
-branch: "TS-187"
-scenario: "1 - Monolithic"
-architecture: "Monolith"
-module: "flat"
-package_manager: "yarn (Berry)"
-bundler: "rollup"
-project: package.json
+branch: "TS-184"
+scenario: "2 - Microservices"
+architecture: "Microservices"
+module: "workspace"
+package_manager: "bun"
+bundler: "vite"
+project: packages/domain/package.json
 tests: tests/
 tools_project: tools/
 pinned-version: "3.2.1"
 config: ".jscpd.json"
-target_files: [src/services]
-command: "node_modules/.bin/jscpd --config .jscpd.json src"
+target_files: [packages/domain/src/services]
+command: "node_modules/.bin/jscpd --config .jscpd.json packages/domain/src"
 expects_findings: true

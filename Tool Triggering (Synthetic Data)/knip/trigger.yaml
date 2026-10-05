@@ -3,17 +3,17 @@ label: "knip"
 language: typescript
 node_version: "24"
 typescript_version: "5.9.3"
-branch: "TS-187"
-scenario: "1 - Monolithic"
-architecture: "Monolith"
-module: "flat"
-package_manager: "yarn (Berry)"
-bundler: "rollup"
-project: package.json
+branch: "TS-184"
+scenario: "2 - Microservices"
+architecture: "Microservices"
+module: "workspace"
+package_manager: "bun"
+bundler: "vite"
+project: packages/domain/package.json
 tests: tests/
 tools_project: tools/
 pinned-version: "2.43.0"
 config: "knip.json"
-target_files: [src, tests]
+target_files: [packages/domain/src, tests]
 command: "node_modules/.bin/knip --config knip.json --reporter json"
 expects_findings: true
