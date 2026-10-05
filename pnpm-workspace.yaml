@@ -1,7 +1,3 @@
-packages:
-  - "packages/*"
-  - "services/*"
-
 allowBuilds:
   "@appthreat/sqlite3": true
   "@biomejs/biome": true

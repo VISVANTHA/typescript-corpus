@@ -1,17 +1,15 @@
 {
-  "name": "typescript-n24-ts-190",
+  "name": "typescript-n24-ts-189",
   "version": "1.0.0",
   "private": true,
-  "description": "Node 24 / rollup / pnpm / Microservices tool-evaluation repository (branch TS-190).",
+  "description": "Node 24 / rollup / pnpm / Monolith tool-evaluation repository (branch TS-189).",
   "license": "MIT",
   "engines": {
     "node": ">=24.15 <25"
   },
   "packageManager": "pnpm@12.2.1",
-  "workspaces": [
-    "packages/*",
-    "services/*"
-  ],
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "scripts": {
     "build": "bash tools/typescript/run_tsc.sh",
     "bundle": "bash tools/esbuild/run_esbuild.sh",
