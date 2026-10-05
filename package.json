@@ -1,15 +1,17 @@
 {
-  "name": "typescript-n21-ts-133",
+  "name": "typescript-n21-ts-132",
   "version": "1.0.0",
   "private": true,
-  "description": "Node 21 / vite / pnpm / Monolith tool-evaluation repository (branch TS-133).",
+  "description": "Node 21 / vite / yarn (Berry) / Microservices tool-evaluation repository (branch TS-132).",
   "license": "MIT",
   "engines": {
     "node": ">=21.1 <22"
   },
-  "packageManager": "pnpm@12.2.1",
-  "main": "dist/src/index.js",
-  "types": "dist/src/index.d.ts",
+  "packageManager": "yarn@4.18.0",
+  "workspaces": [
+    "packages/*",
+    "services/*"
+  ],
   "scripts": {
     "build": "bash tools/typescript/run_tsc.sh",
     "bundle": "bash tools/esbuild/run_esbuild.sh",
