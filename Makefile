@@ -6,7 +6,7 @@ TSNODE := node_modules/.bin/ts-node
 .PHONY: help install build test coverage lint tools verify audit check clean
 
 help:
-	@echo "install   -- pnpm install --frozen-lockfile (frozen -- gate G4)"
+	@echo "install   -- yarn install --immutable (frozen -- gate G4)"
 	@echo "build     -- tsc --noEmit, tsc emit, vite bundle + run it"
 	@echo "test      -- mocha over tests/"
 	@echo "coverage  -- c8, nyc+ts-node and vitest: three independent numbers"
@@ -16,7 +16,7 @@ help:
 	@echo "check     -- full_check.ts cross-file consistency audit"
 
 install:
-	pnpm install --frozen-lockfile
+	yarn install --immutable
 
 build:
 	bash tools/typescript/run_tsc.sh

@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": { "noEmit": false },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "dist", "build", "reports", "tests", "src/analysis"]
+  "include": ["packages/domain/src/**/*.ts"],
+  "exclude": ["node_modules", "dist", "build", "reports", "tests", "packages/domain/src/analysis"]
 }
