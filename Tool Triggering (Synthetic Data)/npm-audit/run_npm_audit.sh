@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# npm audit / npm ls runner -- branch TS-196 (Node 26, yarn (Berry), Microservices).
+# npm audit / npm ls runner -- branch TS-195 (Node 26, yarn (Berry), Monolith).
 set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$REPO_ROOT"
