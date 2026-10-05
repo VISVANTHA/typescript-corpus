@@ -1,15 +1,20 @@
 {
-  "name": "typescript-n26-ts-207",
+  "name": "typescript-n26-ts-202",
   "version": "1.0.0",
   "private": true,
-  "description": "Node 26 / vite / bun / Monolith tool-evaluation repository (branch TS-207).",
+  "description": "Node 26 / vite / npm / Microservices tool-evaluation repository (branch TS-202).",
   "license": "MIT",
   "engines": {
     "node": ">=26 <27"
   },
-  "packageManager": "bun@1.3.13",
-  "main": "dist/src/index.js",
-  "types": "dist/src/index.d.ts",
+  "packageManager": "npm@12.0.2",
+  "allowScripts": {
+    "protobufjs@7.6.6": true
+  },
+  "workspaces": [
+    "packages/*",
+    "services/*"
+  ],
   "scripts": {
     "build": "bash tools/typescript/run_tsc.sh",
     "bundle": "bash tools/esbuild/run_esbuild.sh",
