@@ -1,8 +1,8 @@
 import { expect } from "chai";
-import { OrderService } from "../packages/domain/src/services/order-service";
-import { RetailOrderProcessor } from "../packages/domain/src/services/retail-order-processor";
-import { WholesaleOrderProcessor } from "../packages/domain/src/services/wholesale-order-processor";
-import type { OrderRecord } from "../packages/domain/src/models/order-record";
+import { OrderService } from "../src/services/order-service";
+import { RetailOrderProcessor } from "../src/services/retail-order-processor";
+import { WholesaleOrderProcessor } from "../src/services/wholesale-order-processor";
+import type { OrderRecord } from "../src/models/order-record";
 
 const BOOK: OrderRecord[] = [
   { id: "R-1", channel: "retail", tier: "gold",
