@@ -1,0 +1,15 @@
+# bun 1.3.13 configuration.
+#
+# bun is a standalone binary, not an npm package. It resolves npm packages the
+# same way the other managers do; the project itself still RUNS on Node
+# 20.20.2. bun does not enforce `engines.node` at install time, so the Node
+# 12 constraint is carried by .nvmrc, package.json engines and CI -- not by the
+# installer.
+[install]
+# Every dependency in this corpus is pinned exactly.
+exact = true
+# Text lockfile (bun.lock) rather than the binary bun.lockb, so the committed
+# lockfile is reviewable in a diff. A binary lockfile would be the bun
+# equivalent of WillowBrook's unreviewable 703-byte stub.
+saveTextLockfile = true
+registry = "https://registry.npmjs.org"

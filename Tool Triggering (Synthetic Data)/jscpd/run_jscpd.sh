@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# jscpd runner -- branch TS-099 (Node 20, yarn (Berry), Monolith).
+# jscpd runner -- branch TS-120 (Node 20, bun, Microservices).
 set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$REPO_ROOT"
@@ -25,7 +25,7 @@ echo "[jscpd] version:"; node_modules/.bin/jscpd --version
 # scans nothing, reports nothing, and STILL EXITS 0. The `path` key inside the
 # config file is ignored entirely; only the CLI argument is honoured.
 # Hence: config at the repo root, path passed explicitly.
-node_modules/.bin/jscpd --config .jscpd.json src
+node_modules/.bin/jscpd --config .jscpd.json packages/domain/src
 node -e "
   const r = require('./reports/jscpd/jscpd-report.json');
   const n = (r.statistics && r.statistics.total && r.statistics.total.clones) || 0;
