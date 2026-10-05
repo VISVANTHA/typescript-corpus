@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "typescript-n21-ts-136",
+      "name": "typescript-n21-ts-135",
       "dependencies": {
         "@opentelemetry/api": "1.9.1",
         "@opentelemetry/sdk-node": "0.221.0",
@@ -52,38 +52,6 @@
         "typescript-eslint": "8.68.0",
         "vite": "5.4.21",
         "vitest": "2.1.9",
-      },
-    },
-    "packages/contracts": {
-      "name": "@orderkit/contracts",
-      "version": "1.0.0",
-    },
-    "packages/domain": {
-      "name": "@orderkit/domain",
-      "version": "1.0.0",
-    },
-    "services/gateway-service": {
-      "name": "@orderkit/gateway-service",
-      "version": "1.0.0",
-      "dependencies": {
-        "@orderkit/contracts": "workspace:*",
-        "@orderkit/domain": "workspace:*",
-      },
-    },
-    "services/order-service": {
-      "name": "@orderkit/order-service",
-      "version": "1.0.0",
-      "dependencies": {
-        "@orderkit/contracts": "workspace:*",
-        "@orderkit/domain": "workspace:*",
-      },
-    },
-    "services/pricing-service": {
-      "name": "@orderkit/pricing-service",
-      "version": "1.0.0",
-      "dependencies": {
-        "@orderkit/contracts": "workspace:*",
-        "@orderkit/domain": "workspace:*",
       },
     },
   },
@@ -451,16 +419,6 @@
     "@opentelemetry/sdk-trace-node": ["@opentelemetry/sdk-trace-node@2.10.0", "", { "dependencies": { "@opentelemetry/context-async-hooks": "2.10.0", "@opentelemetry/core": "2.10.0", "@opentelemetry/sdk-trace-base": "2.10.0" }, "peerDependencies": { "@opentelemetry/api": ">=1.0.0 <1.10.0" } }, "sha512-GZK/G6oZyBLGlH1pUgeDch7D91KoHd2uotUGIkWCPi9GI5T9X0p4L7nNAMDR1BQjkRYoDqo+ddfVx9t5Uhys+Q=="],
 
     "@opentelemetry/semantic-conventions": ["@opentelemetry/semantic-conventions@1.43.0", "", {}, "sha512-eSYWTm620tTk45EKSedaUL8MFYI8hW164hIXsgIHyxu3VobUB3fFCu5t0hQby6OoWRPsG1KkKUG2M5UadiLiVg=="],
-
-    "@orderkit/contracts": ["@orderkit/contracts@workspace:packages/contracts"],
-
-    "@orderkit/domain": ["@orderkit/domain@workspace:packages/domain"],
-
-    "@orderkit/gateway-service": ["@orderkit/gateway-service@workspace:services/gateway-service"],
-
-    "@orderkit/order-service": ["@orderkit/order-service@workspace:services/order-service"],
-
-    "@orderkit/pricing-service": ["@orderkit/pricing-service@workspace:services/pricing-service"],
 
     "@oxc-resolver/binding-android-arm-eabi": ["@oxc-resolver/binding-android-arm-eabi@11.24.2", "", { "os": "android", "cpu": "arm" }, "sha512-y09e0L0SRI2OA2tUIrjBgoV3eH5hvUKXNkJqXmNo5V2WxIjyC7I7aJfRLMEVpA8yi95f90gFDvO0VMgrDw+vwA=="],
 

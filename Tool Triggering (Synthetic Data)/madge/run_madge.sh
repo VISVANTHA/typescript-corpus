@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# madge runner -- branch TS-136 (Node 21, bun, Microservices).
+# madge runner -- branch TS-135 (Node 21, bun, Monolith).
 set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$REPO_ROOT"
@@ -19,11 +19,11 @@ echo "[madge] version:"; node_modules/.bin/madge --version
 # .madgerc from the working directory, so the config lives at the repo root.
 # Passing --config makes madge exit with "unknown option", which a runner that
 # swallowed stderr would report as an empty graph rather than a failure.
-node_modules/.bin/madge --ts-config tsconfig.json --json packages/domain/src > reports/madge-graph.json
+node_modules/.bin/madge --ts-config tsconfig.json --json src > reports/madge-graph.json
 echo "[madge] circular dependency check:"
-node_modules/.bin/madge --ts-config tsconfig.json --circular packages/domain/src || true
+node_modules/.bin/madge --ts-config tsconfig.json --circular src || true
 echo "[madge] orphan modules:"
-node_modules/.bin/madge --ts-config tsconfig.json --orphans packages/domain/src || true
+node_modules/.bin/madge --ts-config tsconfig.json --orphans src || true
 node -e "
   const g = require('./reports/madge-graph.json');
   const files = Object.keys(g);
