@@ -1,6 +1,6 @@
 #!/usr/bin/env ts-node
 /**
- * Cross-file consistency audit -- branch TS-155.
+ * Cross-file consistency audit -- branch TS-176.
  *
  * The Python family's hard-won rule applies here verbatim: **read expected
  * values from the repository, never from a hard-coded list.** A hard-coded

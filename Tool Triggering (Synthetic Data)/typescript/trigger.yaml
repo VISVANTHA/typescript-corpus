@@ -1,19 +1,19 @@
 tool: typescript
 label: "TypeScript compiler (tsc)"
 language: typescript
-node_version: "22"
+node_version: "24"
 typescript_version: "5.9.3"
-branch: "TS-155"
-scenario: "1 - Monolithic"
-architecture: "Monolith"
-module: "flat"
-package_manager: "yarn (Berry)"
-bundler: "vite"
-project: package.json
+branch: "TS-176"
+scenario: "2 - Microservices"
+architecture: "Microservices"
+module: "workspace"
+package_manager: "bun"
+bundler: "esbuild"
+project: packages/domain/package.json
 tests: tests/
 tools_project: tools/
 pinned-version: "5.0.4"
 config: "tsconfig.json"
-target_files: [src]
+target_files: [packages/domain/src]
 command: "bash tools/typescript/run_tsc.sh"
 produces: "type diagnostics (must be empty)"

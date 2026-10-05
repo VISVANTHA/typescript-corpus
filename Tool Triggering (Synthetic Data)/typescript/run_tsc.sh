@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# TypeScript compiler (tsc) runner -- branch TS-155 (Node 22, yarn (Berry), Monolith).
+# TypeScript compiler (tsc) runner -- branch TS-176 (Node 24, bun, Microservices).
 set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$REPO_ROOT"
@@ -28,12 +28,30 @@ pkgver() {
 # runner that calls .bin/tsc compiles with 6.0.3. Nothing warns. On these repos it
 # surfaces as TS5107 (`moduleResolution=node10` is deprecated) -- a diagnostic
 # that the declared compiler does not emit at all.
-TSC="$(node -e "const p=require('path');console.log(p.join(p.dirname(require.resolve('typescript')),'..','bin','tsc'))")"
+# `paths: [process.cwd()]` is not optional. A bare require.resolve('typescript')
+# walks up to the GLOBAL node_modules if the local one is missing or incomplete
+# -- and a globally installed TypeScript 6.0.3 will happily answer. That is how
+# a branch whose `yarn install` had failed outright still printed
+# "[tsc] version: Version 6.0.3" and carried on: the runner reported a compiler
+# that was never a dependency of this repo. Resolution must be anchored to the
+# project, and the result must be inside it.
+TSC="$(node -e "
+  const p = require('path');
+  let entry;
+  try { entry = require.resolve('typescript', { paths: [process.cwd()] }); }
+  catch { console.error('[tsc] FATAL: typescript is not installed in this project'); process.exit(1); }
+  const root = p.resolve(process.cwd());
+  if (!p.resolve(entry).startsWith(root + p.sep)) {
+    console.error('[tsc] FATAL: resolved typescript outside the project: ' + entry);
+    process.exit(1);
+  }
+  console.log(p.join(p.dirname(entry), '..', 'bin', 'tsc'));
+")"
 echo "[tsc] binary: $TSC"
 echo "[tsc] version:"; node "$TSC" --version
 echo "[tsc] 1/2 type-check the whole project (expect zero diagnostics)"
 node "$TSC" -p tsconfig.json --noEmit
 echo "[tsc] 2/2 emit CommonJS + declarations + source maps to dist/"
 node "$TSC" -p tsconfig.build.json
-test -f dist/src/index.js || { echo "[tsc] FAIL: no emit"; exit 1; }
+test -f dist/packages/domain/src/index.js || { echo "[tsc] FAIL: no emit"; exit 1; }
 echo "[tsc] OK"
