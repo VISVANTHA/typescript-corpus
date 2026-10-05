@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# eslint-plugin-sonarjs runner -- branch TS-110 (Node 20, pnpm, Microservices).
+# eslint-plugin-sonarjs runner -- branch TS-109 (Node 20, pnpm, Monolith).
 set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$REPO_ROOT"
@@ -16,7 +16,7 @@ pkgver() {
 
 echo "[sonarjs] eslint-plugin-sonarjs $(pkgver eslint-plugin-sonarjs)"
 echo "[sonarjs] cognitive complexity limit is 15 (eslint.config.mjs)"
-node_modules/.bin/eslint packages/domain/src/analysis/complexity-sample.ts --no-inline-config --format json > reports/sonarjs.json || true
+node_modules/.bin/eslint src/analysis/complexity-sample.ts --no-inline-config --format json > reports/sonarjs.json || true
 node -e "
   const m = (require('./reports/sonarjs.json')[0]||{}).messages||[];
   const cc = m.filter(x=>x.ruleId==='sonarjs/cognitive-complexity');
