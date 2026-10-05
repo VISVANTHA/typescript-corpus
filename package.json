@@ -1,8 +1,8 @@
 {
-  "name": "typescript-n24-ts-186",
+  "name": "typescript-n24-ts-185",
   "version": "1.0.0",
   "private": true,
-  "description": "Node 24 / rollup / npm / Microservices tool-evaluation repository (branch TS-186).",
+  "description": "Node 24 / rollup / npm / Monolith tool-evaluation repository (branch TS-185).",
   "license": "MIT",
   "engines": {
     "node": ">=24.15 <25"
@@ -11,10 +11,8 @@
   "allowScripts": {
     "protobufjs@7.6.6": true
   },
-  "workspaces": [
-    "packages/*",
-    "services/*"
-  ],
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "scripts": {
     "build": "bash tools/typescript/run_tsc.sh",
     "bundle": "bash tools/esbuild/run_esbuild.sh",

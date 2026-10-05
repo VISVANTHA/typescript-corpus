@@ -1,8 +1,8 @@
 import { expect } from "chai";
 import { trace } from "@opentelemetry/api";
 
-import { withSpan, tracer } from "../packages/domain/src/platform/tracing";
-import { run } from "../packages/domain/src/index";
+import { withSpan, tracer } from "../src/platform/tracing";
+import { run } from "../src/index";
 
 /**
  * The instrumentation is covered here for a specific reason.
