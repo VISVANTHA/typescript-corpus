@@ -3,13 +3,13 @@ label: "pydriller"
 language: typescript
 node_version: "22"
 typescript_version: "5.9.3"
-branch: "TS-156"
-scenario: "2 - Microservices"
-architecture: "Microservices"
-module: "workspace"
+branch: "TS-155"
+scenario: "1 - Monolithic"
+architecture: "Monolith"
+module: "flat"
 package_manager: "yarn (Berry)"
 bundler: "vite"
-project: packages/domain/package.json
+project: package.json
 tests: tests/
 tools_project: tools/
 pinned-version: null  # not an npm package -- see the runner
