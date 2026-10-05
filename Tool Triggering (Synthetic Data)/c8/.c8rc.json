@@ -1,8 +1,8 @@
 {
   "all": true,
-  "src": ["packages/domain/src"],
-  "include": ["packages/domain/src/**/*.ts"],
-  "exclude": ["packages/domain/src/analysis/**", "tests/**", "tools/**", "dist/**", "build/**"],
+  "src": ["src"],
+  "include": ["src/**/*.ts"],
+  "exclude": ["src/analysis/**", "tests/**", "tools/**", "dist/**", "build/**"],
   "reporter": ["text", "json-summary", "lcov"],
   "reports-dir": "coverage",
   "temp-directory": ".c8_output",
