@@ -1,15 +1,20 @@
 {
-  "name": "typescript-n24-ts-183",
+  "name": "typescript-n24-ts-178",
   "version": "1.0.0",
   "private": true,
-  "description": "Node 24 / vite / bun / Monolith tool-evaluation repository (branch TS-183).",
+  "description": "Node 24 / vite / npm / Microservices tool-evaluation repository (branch TS-178).",
   "license": "MIT",
   "engines": {
     "node": ">=24.15 <25"
   },
-  "packageManager": "bun@1.3.13",
-  "main": "dist/src/index.js",
-  "types": "dist/src/index.d.ts",
+  "packageManager": "npm@12.0.2",
+  "allowScripts": {
+    "protobufjs@7.6.6": true
+  },
+  "workspaces": [
+    "packages/*",
+    "services/*"
+  ],
   "scripts": {
     "build": "bash tools/typescript/run_tsc.sh",
     "bundle": "bash tools/esbuild/run_esbuild.sh",
