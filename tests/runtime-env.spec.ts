@@ -1,15 +1,15 @@
 import { expect } from "chai";
 
 /**
- * Runtime lock. Every branch here targets Node 21, so this suite asserts
+ * Runtime lock. Every branch here targets Node 22, so this suite asserts
  * the interpreter and the language level the branch is actually built for.
  * In this corpus the Node version is held constant and the packaging varies,
  * so this is the analogue of the Python family's version-feature test.
  */
 describe("runtime environment", () => {
-  it("runs on Node 21", () => {
+  it("runs on Node 22", () => {
     const major = Number(process.versions.node.split(".")[0]);
-    expect(major, `expected Node 21, got ${process.version}`).to.equal(21);
+    expect(major, `expected Node 22, got ${process.version}`).to.equal(22);
   });
 
   it("supports the ES2023 features this branch compiles to", () => {

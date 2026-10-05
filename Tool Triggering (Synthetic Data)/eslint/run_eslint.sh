@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# eslint runner -- branch TS-131 (Node 21, yarn (Berry), Monolith).
+# eslint runner -- branch TS-152 (Node 22, bun, Microservices).
 set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$REPO_ROOT"
@@ -17,7 +17,7 @@ pkgver() {
 echo "[eslint] version:"; node_modules/.bin/eslint --version
 echo
 echo "[eslint] 0/3 the flat config must LOAD (gate G3)"
-node_modules/.bin/eslint --print-config src/services/order-service.ts > /dev/null
+node_modules/.bin/eslint --print-config packages/domain/src/services/order-service.ts > /dev/null
 echo "[eslint] config loads OK"
 echo
 # eslint 9 removed the `unix` and `compact` formatters from core -- only
@@ -25,15 +25,15 @@ echo
 # over from eslint 8 fails here with "The unix formatter is no longer part of
 # core ESLint", which reads like a missing dependency rather than a removal.
 echo "[eslint] 1/3 real source, fixtures excluded -- expect clean"
-node_modules/.bin/eslint 'src/models/**/*.ts' 'src/services/**/*.ts' src/index.ts --format stylish
+node_modules/.bin/eslint 'packages/domain/src/models/**/*.ts' 'packages/domain/src/services/**/*.ts' packages/domain/src/index.ts --format stylish
 echo "[eslint] real source clean"
 echo
 echo "[eslint] 2/3 planted lint fixture -- expect findings"
 # --no-inline-config defeats the file-level /* eslint-disable */ the fixture carries.
-node_modules/.bin/eslint src/analysis/lint-violations.ts --no-inline-config --format stylish || true
+node_modules/.bin/eslint packages/domain/src/analysis/lint-violations.ts --no-inline-config --format stylish || true
 echo
 echo "[eslint] 3/3 full tree summary"
-node_modules/.bin/eslint 'src/**/*.ts' --no-inline-config --format json > reports/eslint.json || true
+node_modules/.bin/eslint 'packages/domain/src/**/*.ts' --no-inline-config --format json > reports/eslint.json || true
 node -e "
   const r = require('./reports/eslint.json');
   const n = r.reduce((a,f)=>a+f.messages.length,0);
