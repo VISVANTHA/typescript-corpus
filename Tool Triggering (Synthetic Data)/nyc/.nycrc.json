@@ -1,7 +1,7 @@
 {
   "extension": [".ts"],
-  "include": ["src/**/*.ts"],
-  "exclude": ["src/analysis/**", "tests/**", "tools/**", "dist/**", "build/**"],
+  "include": ["packages/domain/src/**/*.ts"],
+  "exclude": ["packages/domain/src/analysis/**", "tests/**", "tools/**", "dist/**", "build/**"],
   "reporter": ["text", "json-summary"],
   "report-dir": "coverage-nyc",
   "temp-dir": ".nyc_output",

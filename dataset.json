@@ -1,36 +1,41 @@
 {
-  "branchId": "TS-139",
+  "branchId": "TS-136",
   "repository": "typescript-n21-136-140",
   "language": "TypeScript",
   "typescriptVersion": "5.9.3",
   "nodeVersion": "21",
   "nodeVersionVerified": "21.7.3",
-  "bundler": "rollup",
-  "bundlerVersion": "4.62.5",
-  "packageManager": "yarn (Berry)",
-  "packageManagerVersion": "4.18.0",
-  "architecture": "Monolith",
-  "scenario": "1 - Monolithic",
-  "module": "flat",
-  "sourceRoot": "src",
+  "bundler": "vite",
+  "bundlerVersion": "5.4.21",
+  "packageManager": "bun",
+  "packageManagerVersion": "1.3.13",
+  "architecture": "Microservices",
+  "scenario": "2 - Microservices",
+  "module": "workspace",
+  "sourceRoot": "packages/domain/src",
   "deployableUnits": [
-    "typescript-n21-ts-139"
+    "gateway-service",
+    "order-service",
+    "pricing-service"
   ],
-  "workspaces": [],
+  "workspaces": [
+    "packages/*",
+    "services/*"
+  ],
   "toolsWired": 29,
-  "bundlerNote": "rollup 4.62.5 -- newest installable; 4.63.x is inside the Yarn 4 quarantine window. Transform: tsc 5.9.3 via @rollup/plugin-typescript 12.3.0. Linker: Rollup.",
+  "bundlerNote": "vite 5.4.21 -- THREE majors behind current (8.2.2). vite 6+ declares ^20.19.0 || >=22.12.0, which excludes Node 21. Transform: its own bundled esbuild ~0.21.x. Linker: Rollup.",
   "coveragePrimary": "c8",
   "coverageCrossCheck": "nyc + ts-node",
   "plantedFixtures": {
     "duplication": [
-      "src/services/retail-order-processor.ts",
-      "src/services/wholesale-order-processor.ts"
+      "packages/domain/src/services/retail-order-processor.ts",
+      "packages/domain/src/services/wholesale-order-processor.ts"
     ],
-    "complexity": "src/analysis/complexity-sample.ts",
-    "sast": "src/analysis/sast-fixture.ts",
-    "taint": "src/analysis/taint-fixture.ts",
-    "deadCode": "src/analysis/dead-code.ts",
-    "callGraph": "src/analysis/call-graph-sample.ts",
+    "complexity": "packages/domain/src/analysis/complexity-sample.ts",
+    "sast": "packages/domain/src/analysis/sast-fixture.ts",
+    "taint": "packages/domain/src/analysis/taint-fixture.ts",
+    "deadCode": "packages/domain/src/analysis/dead-code.ts",
+    "callGraph": "packages/domain/src/analysis/call-graph-sample.ts",
     "vulnerablePins": [
       "lodash@4.17.15",
       "minimist@1.2.5",
