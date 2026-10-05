@@ -258,37 +258,6 @@ importers:
         specifier: 4.1.11
         version: 4.1.11(@opentelemetry/api@1.9.1)(@types/node@26.3.0)(@vitest/coverage-v8@4.1.11)(vite@8.2.2(@types/node@26.3.0)(jiti@2.7.0)(yaml@2.9.0))
 
-  packages/contracts: {}
-
-  packages/domain: {}
-
-  services/gateway-service:
-    dependencies:
-      '@orderkit/contracts':
-        specifier: workspace:*
-        version: link:../../packages/contracts
-      '@orderkit/domain':
-        specifier: workspace:*
-        version: link:../../packages/domain
-
-  services/order-service:
-    dependencies:
-      '@orderkit/contracts':
-        specifier: workspace:*
-        version: link:../../packages/contracts
-      '@orderkit/domain':
-        specifier: workspace:*
-        version: link:../../packages/domain
-
-  services/pricing-service:
-    dependencies:
-      '@orderkit/contracts':
-        specifier: workspace:*
-        version: link:../../packages/contracts
-      '@orderkit/domain':
-        specifier: workspace:*
-        version: link:../../packages/domain
-
 packages:
 
   '@appthreat/atom-common@1.1.0':

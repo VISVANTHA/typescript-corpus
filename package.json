@@ -1,17 +1,15 @@
 {
-  "name": "typescript-n26-ts-214",
+  "name": "typescript-n26-ts-213",
   "version": "1.0.0",
   "private": true,
-  "description": "Node 26 / rollup / pnpm / Microservices tool-evaluation repository (branch TS-214).",
+  "description": "Node 26 / rollup / pnpm / Monolith tool-evaluation repository (branch TS-213).",
   "license": "MIT",
   "engines": {
     "node": ">=26 <27"
   },
   "packageManager": "pnpm@12.2.1",
-  "workspaces": [
-    "packages/*",
-    "services/*"
-  ],
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "scripts": {
     "build": "bash tools/typescript/run_tsc.sh",
     "bundle": "bash tools/esbuild/run_esbuild.sh",
