@@ -3,17 +3,17 @@ label: "madge"
 language: typescript
 node_version: "24"
 typescript_version: "5.9.3"
-branch: "TS-191"
-scenario: "1 - Monolithic"
-architecture: "Monolith"
-module: "flat"
-package_manager: "bun"
+branch: "TS-186"
+scenario: "2 - Microservices"
+architecture: "Microservices"
+module: "workspace"
+package_manager: "npm"
 bundler: "rollup"
-project: package.json
+project: packages/domain/package.json
 tests: tests/
 tools_project: tools/
 pinned-version: "5.0.2"
 config: ".madgerc"
-target_files: [src]
-command: "node_modules/.bin/madge --ts-config tsconfig.json src"
+target_files: [packages/domain/src]
+command: "node_modules/.bin/madge --ts-config tsconfig.json packages/domain/src"
 produces: "module graph, circular check, orphan list"

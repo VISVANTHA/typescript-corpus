@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# GitHub API (repos + releases) runner -- branch TS-191 (Node 24, bun, Monolith).
+# GitHub API (repos + releases) runner -- branch TS-186 (Node 24, npm, Microservices).
 set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$REPO_ROOT"
