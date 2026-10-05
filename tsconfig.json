@@ -19,6 +19,6 @@
     "resolveJsonModule": true,
     "types": ["node", "mocha", "chai"]
   },
-  "include": ["packages/domain/src/**/*.ts", "tests/**/*.ts", "tools/**/*.ts"],
+  "include": ["src/**/*.ts", "tests/**/*.ts", "tools/**/*.ts"],
   "exclude": ["node_modules", "dist", "build", "reports"]
 }

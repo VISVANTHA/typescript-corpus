@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* ts-morph runner -- branch TS-198.
+/* ts-morph runner -- branch TS-197.
  * Type-aware inventory: one row per function with parameter count, statement
  * count and maximum block depth. This is the primary structural source; Lizard
  * is the tokeniser cross-check, and the two are expected to disagree on
