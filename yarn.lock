@@ -2111,45 +2111,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@orderkit/contracts@workspace:*, @orderkit/contracts@workspace:packages/contracts":
-  version: 0.0.0-use.local
-  resolution: "@orderkit/contracts@workspace:packages/contracts"
-  languageName: unknown
-  linkType: soft
-
-"@orderkit/domain@workspace:*, @orderkit/domain@workspace:packages/domain":
-  version: 0.0.0-use.local
-  resolution: "@orderkit/domain@workspace:packages/domain"
-  languageName: unknown
-  linkType: soft
-
-"@orderkit/gateway-service@workspace:services/gateway-service":
-  version: 0.0.0-use.local
-  resolution: "@orderkit/gateway-service@workspace:services/gateway-service"
-  dependencies:
-    "@orderkit/contracts": "workspace:*"
-    "@orderkit/domain": "workspace:*"
-  languageName: unknown
-  linkType: soft
-
-"@orderkit/order-service@workspace:services/order-service":
-  version: 0.0.0-use.local
-  resolution: "@orderkit/order-service@workspace:services/order-service"
-  dependencies:
-    "@orderkit/contracts": "workspace:*"
-    "@orderkit/domain": "workspace:*"
-  languageName: unknown
-  linkType: soft
-
-"@orderkit/pricing-service@workspace:services/pricing-service":
-  version: 0.0.0-use.local
-  resolution: "@orderkit/pricing-service@workspace:services/pricing-service"
-  dependencies:
-    "@orderkit/contracts": "workspace:*"
-    "@orderkit/domain": "workspace:*"
-  languageName: unknown
-  linkType: soft
-
 "@oxc-parser/binding-android-arm-eabi@npm:0.143.0":
   version: 0.143.0
   resolution: "@oxc-parser/binding-android-arm-eabi@npm:0.143.0"
@@ -9205,9 +9166,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript-n24-ts-188@workspace:.":
+"typescript-n24-ts-187@workspace:.":
   version: 0.0.0-use.local
-  resolution: "typescript-n24-ts-188@workspace:."
+  resolution: "typescript-n24-ts-187@workspace:."
   dependencies:
     "@biomejs/biome": "npm:2.5.10"
     "@cyclonedx/cdxgen": "npm:12.8.4"
