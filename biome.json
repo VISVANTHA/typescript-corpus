@@ -5,6 +5,6 @@
   "assist": { "enabled": false },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["src/**/*.ts", "tests/**/*.ts", "!**/node_modules", "!**/dist", "!**/build"]
+    "includes": ["packages/domain/src/**/*.ts", "tests/**/*.ts", "!**/node_modules", "!**/dist", "!**/build"]
   }
 }
