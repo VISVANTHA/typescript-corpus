@@ -1,8 +1,8 @@
 {
-  "name": "typescript-n22-ts-146",
+  "name": "typescript-n22-ts-145",
   "version": "1.0.0",
   "private": true,
-  "description": "Node 22 / esbuild / npm / Microservices tool-evaluation repository (branch TS-146).",
+  "description": "Node 22 / esbuild / npm / Monolith tool-evaluation repository (branch TS-145).",
   "license": "MIT",
   "engines": {
     "node": ">=22.22 <23"
@@ -12,10 +12,8 @@
     "protobufjs@7.6.6": true,
     "esbuild@0.28.2": true
   },
-  "workspaces": [
-    "packages/*",
-    "services/*"
-  ],
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "scripts": {
     "build": "bash tools/typescript/run_tsc.sh",
     "bundle": "bash tools/esbuild/run_esbuild.sh",

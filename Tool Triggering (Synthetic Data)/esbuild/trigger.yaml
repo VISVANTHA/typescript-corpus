@@ -3,17 +3,17 @@ label: "esbuild"
 language: typescript
 node_version: "22"
 typescript_version: "5.9.3"
-branch: "TS-146"
-scenario: "2 - Microservices"
-architecture: "Microservices"
-module: "workspace"
+branch: "TS-145"
+scenario: "1 - Monolithic"
+architecture: "Monolith"
+module: "flat"
 package_manager: "npm"
 bundler: "esbuild"
-project: packages/domain/package.json
+project: package.json
 tests: tests/
 tools_project: tools/
 pinned-version: "0.21.5"
 config: "tools/esbuild/esbuild.config.cjs"
-target_files: [packages/domain/src/index.ts]
+target_files: [src/index.ts]
 command: "node tools/esbuild/esbuild.config.cjs"
 produces: "build/bundle.cjs + build/bundle.cjs.map, and the bundle is executed"
