@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# @stryker-mutator/core runner -- branch TS-128 (Node 21, bun, Microservices).
+# @stryker-mutator/core runner -- branch TS-127 (Node 21, bun, Monolith).
 set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$REPO_ROOT"
