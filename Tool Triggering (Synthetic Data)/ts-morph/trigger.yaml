@@ -3,17 +3,17 @@ label: "ts-morph"
 language: typescript
 node_version: "22"
 typescript_version: "5.9.3"
-branch: "TS-149"
-scenario: "1 - Monolithic"
-architecture: "Monolith"
-module: "flat"
-package_manager: "pnpm"
+branch: "TS-148"
+scenario: "2 - Microservices"
+architecture: "Microservices"
+module: "workspace"
+package_manager: "yarn (Berry)"
 bundler: "esbuild"
-project: package.json
+project: packages/domain/package.json
 tests: tests/
 tools_project: tools/
 pinned-version: "18.0.0"
 config: "tsconfig.json"
-target_files: [src]
+target_files: [packages/domain/src]
 command: "node tools/ts-morph/run_ts_morph.js"
 produces: "per-function inventory: name, params, statements, depth"
